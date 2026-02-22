@@ -1,0 +1,3637 @@
+title: Dom
+views:
+- type: custom:grid-layout
+  title: Deye 3P DEV
+  path: deye-3p-atom-dev
+  cards:
+  - type: custom:sunsynk-power-flow-card
+    cardstyle: lite
+    large_font: true
+    show_solar: true
+    panel_mode: true
+    card_height: 100%
+    inverter:
+      modern: false
+      colour: '#959595'
+      autarky: energy
+      model: deye
+      auto_scale: true
+      three_phase: true
+    solar:
+      mppts: 2
+      show_daily: true
+      colour: '#f4c430'
+      animation_speed: 9
+      max_power: 5345
+      pv1_name: HS1
+      display_mode: 3
+      auto_scale: true
+      efficiency: 3
+      dynamic_colour: true
+      pv1_max_power: 11000
+      pv2_name: HS3
+      pv2_max_power: 11000
+    battery:
+      energy: 15960
+      shutdown_soc: number.deye_inverter_battery_shutdown_soc
+      show_daily: true
+      colour: '#ffc0cb'
+      animation_speed: 6
+      max_power: '12000'
+      auto_scale: true
+      show_absolute: true
+      animate: true
+      path_threshold: 90
+      count: 1
+      dynamic_colour: true
+      linear_gradient: true
+      show_remaining_energy: false
+    load:
+      show_aux: false
+      show_daily: true
+      animation_speed: 8
+      max_power: 9000
+      auto_scale: true
+      path_threshold: 90
+      off_threshold: 3
+      dynamic_colour: true
+      dynamic_icon: true
+      additional_loads: 3
+      load1_name: Tesla
+      load1_icon: mdi:car-electric
+      load1_switch: sensor.myszeczka_charging_rate
+      load1_extra_entity: sensor.myszeczka_poziom_naladowania_baterii
+      load1_invert_power: true
+      load2_name: Pompa
+      load2_icon: mdi:pump
+      load2_switch: sensor.panasonic_heat_pump_main_heat_power_consumption
+      load3_switch: sensor.aquarea_dhw_power_produced_total
+    grid:
+      show_daily_buy: true
+      no_grid_colour: '#7d7d7d'
+      animation_speed: 8
+      max_power: 11000
+      auto_scale: true
+      grid_off_colour: '#7a0000'
+      show_daily_sell: true
+      grid_name: PGE
+      import_icon: mdi:transmission-tower-import
+      export_icon: mdi:transmission-tower-export
+      show_absolute: false
+    entities:
+      day_battery_charge_70: sensor.deye_inverter_daily_battery_charge
+      day_battery_discharge_71: sensor.deye_inverter_daily_battery_discharge
+      day_grid_export_77: sensor.deye_inverter_daily_energy_sold
+      inverter_voltage_154: sensor.deye_inverter_output_l1_voltage
+      load_frequency_192: sensor.deye_inverter_load_frequency
+      inverter_current_164: sensor.deye_inverter_output_l1_current
+      inverter_power_175: sensor.deye_inverter_output_power
+      grid_power_169: sensor.deye_inverter_grid_power
+      battery_voltage_183: sensor.deye_inverter_battery_voltage
+      battery_soc_184: sensor.deye_inverter_battery
+      battery_power_190: sensor.deye_inverter_battery_power
+      battery_current_191: sensor.deye_inverter_battery_current
+      essential_load3: sensor.panasonic_heat_pump_consumption
+      nonessential_power: none
+      pv1_current_110: sensor.inwerter_prad_pv_1
+      pv2_voltage_111: sensor.inwerter_napiecie_pv_2
+      grid_connected_status_194: binary_sensor.deye_inverter_grid_connected_status
+      aux_power_166: sensor.deye_inverter_generator_power_total
+      prog4_time: number.deye_inverter_time_of_use_4_soc
+      essential_load3_extra: none
+      environment_temp: sensor.dom_realfeel_temperature
+      essential_load2: sensor.panasonic_heat_pump_main_dhw_power_consumption
+      battery_rated_capacity: number.deye_inverter_battery_capacity
+      day_grid_import_76: sensor.deye_inverter_daily_energy_bought
+      grid_voltage: sensor.deye_inverter_grid_l1_voltage
+      battery_temp_182: sensor.deye_inverter_battery_temperature
+      battery_soh: sensor.batt_soh
+      battery_status: sensor.batt_state
+      battery_current_direction: sensor.deye_inverter_battery_current
+      remaining_solar: sensor.energy_production_today_remaining_2
+      energy_cost_sell: sensor.cena_pradu
+      energy_cost_buy: none
+      inverter_status_59: sensor.deye_inverter_running_status
+      use_timer_248: switch.deye_inverter_time_of_use
+      priority_load_243: select.deye_inverter_energy_management_priority
+      dc_transformer_temp_90: sensor.inwerter_temperatura_wewnetrzna
+      radiator_temp_91: sensor.deye_inverter_ac_temperature
+      prog1_time: select.deye_inverter_time_of_use_1_start
+      prog2_time: select.deye_inverter_time_of_use_2_start
+      prog3_time: select.deye_inverter_time_of_use_3_start
+      prog5_time: select.deye_inverter_time_of_use_5_start
+      prog6_time: select.deye_inverter_time_of_use_6_start
+      prog1_capacity: number.deye_inverter_time_of_use_1_soc
+      prog4_capacity: number.deye_inverter_system_mode_soc_time4
+      prog1_charge: switch.deye_inverter_time_of_use_1_charge_enable
+      prog2_charge: switch.deye_inverter_time_of_use_2_charge_enable
+      prog3_charge: switch.deye_inverter_time_of_use_3_charge_enable
+      prog4_charge: switch.deye_inverter_time_of_use_4_charge_enable
+      prog5_charge: switch.deye_inverter_time_of_use_5_charge_enable
+      prog6_charge: switch.deye_inverter_time_of_use_6_charge_enable
+      max_sell_power: number.deye_inverter_max_sell_power
+      day_load_energy_84: sensor.deye_inverter_daily_load_consumption
+      load_power_L1: sensor.deye_inverter_load_l1_power
+      load_power_L2: sensor.deye_inverter_load_l2_power
+      solar_sell_247: switch.deye_inverter_solar_sell
+      inverter_voltage_L2: sensor.deye_inverter_output_l2_voltage
+      inverter_current_L2: sensor.deye_inverter_output_l2_current
+      prog2_capacity: number.deye_inverter_time_of_use_2_soc
+      prog3_capacity: number.deye_inverter_time_of_use_3_soc
+      prog5_capacity: number.deye_inverter_time_of_use_5_soc
+      prog6_capacity: number.deye_inverter_time_of_use_6_soc
+      grid_ct_power_total: sensor.deye_inverter_grid_power
+      grid_ct_power_172: sensor.deye_inverter_grid_l1_power
+      grid_ct_power_L2: sensor.deye_inverter_grid_l2_power
+      total_pv_generation: sensor.deye_inverter_total_pv_production
+      pv1_power_186: sensor.inwerter_moc_czynna_pv_1
+      load_power_L3: sensor.deye_inverter_load_l3_power
+      grid_ct_power_L3: sensor.deye_inverter_grid_l3_power
+      pv1_voltage_109: sensor.inwerter_napiecie_pv_1
+      pv2_voltage_113: sensor.inwerter_napiecie_pv_3
+      pv1_current_112: sensor.inwerter_prad_pv_1
+      pv2_current_112: sensor.inwerter_prad_pv_3
+      pv1_power_187: sensor.inwerter_moc_czynna_pv_1
+      pv2_power_188: sensor.inwerter_moc_czynna_pv_3
+      day_pv_energy_108: sensor.inwerter_dzienna_produkcja
+      pv_total: sensor.inwerter_moc_czynna
+      pv2_power_187: sensor.inwerter_moc_czynna_pv_3
+      inverter_current_L3: sensor.deye_inverter_output_l3_current
+      inverter_voltage_L3: sensor.deye_inverter_output_l3_voltage
+      essential_load1: sensor.tesla_wall_connector_moc
+      essential_load1_extra: sensor.myszeczka_battery_cache
+    dynamic_line_width: true
+    wide: true
+    show_battery: true
+    show_grid: true
+    decimal_places: 1
+    card_width: 100%
+    center_no_grid: false
+    view_layout:
+      grid-area: flow
+  - type: custom:plotly-graph
+    view_layout:
+      grid-area: graph
+    entities:
+    - entity: sensor.deye_inverter_pv_power
+      name: "$fn ({ ys,meta }) =>\n  \"Solar\" + \"\U0001F506\" + \"(\" +ys[ys.length - 1]+\"W)\"\n"
+      fill: tozeroy
+      line:
+        color: rgb(255, 155, 48)
+        shape: spline
+    - entity: sensor.deye_inverter_output_power
+      name: "$fn ({ ys,meta }) =>\n  \"Load\" + \"⚡\" + \"(\" +ys[ys.length - 1]+\"W)\"\n"
+      fill: tozeroy
+      line:
+        color: rgb(95, 182, 173)
+        shape: spline
+    - entity: sensor.deye_inverter_grid_power
+      name: "$fn ({ ys,meta }) =>\n  \"Grid\" + \"\U0001F4A1\" + \"(\" +ys[ys.length - 1]+\"W)\"\n"
+      fill: tozeroy
+      line:
+        color: rgb(84, 144, 194)
+        shape: spline
+    - entity: sensor.deye_inverter_battery_power
+      fill: tozeroy
+      name: "$fn ({ ys,meta }) =>\n  \"Battery\" + \"\U0001F50B\" + \"(\" +ys[ys.length - 1]+\"W)\"\n"
+      line:
+        color: rgb(243, 179, 202)
+        shape: spline
+    - entity: sensor.deye_inverter_battery
+      name: "$fn ({ ys,meta }) =>\n  \"SOC\" + \"⚠️\" + \"(\" +ys[ys.length - 1]+\"%)\"\n"
+      yaxis: y2
+      line:
+        color: red
+        width: 1
+        shape: spline
+      fill: none
+      filters:
+      - sliding_window_moving_average:
+          window_size: 1
+          extended: true
+    - entity: sensor.temp_avg_c
+      name: "$fn ({ ys,meta }) =>\n  \"Temp\" + \"\U0001F321️\" + \"(\" +ys[ys.length - 1]+\"°C)\"\n"
+      yaxis: y2
+      line:
+        color: rgb(255, 99, 132)
+        width: 2
+        shape: spline
+      fill: none
+    hours_to_show: 24
+    refresh_interval: 60
+    title: Moc w czasie rzeczywistym
+    defaults:
+      entity:
+        show_value: false
+      yaxes:
+        fixedrange: true
+    layout:
+      legend:
+        bgcolor: rgba(0,0,0,0)
+        itemsizing: constant
+        font:
+          size: 11
+      yaxis2:
+        range:
+        - 20
+        - 105
+        fixedrange: true
+      yaxis:
+        tickmode: linear
+        dtick: 1000
+    config:
+      scrollZoom: false
+  - type: custom:plotly-graph
+    view_layout:
+      grid-area: daily
+    entities:
+    - entity: sensor.jesionowa_huawei_be6lealydsl5gqs8bigicahcdhga8sdn_total_current_day_energy
+      name: "$fn ({ ys,meta }) =>\n  \"Solar\" + \"\U0001F506\" + \"(\" +ys[ys.length - 1]+\"kWh)\"\n"
+      marker:
+        color: rgb(255, 155, 48)
+    - entity: sensor.deye_inverter_daily_load_consumption
+      name: "$fn ({ ys,meta }) =>\n  \"Load\" + \"⚡\" + \"(\" +ys[ys.length - 1]+\"kWh)\"\n"
+      marker:
+        color: rgb(95, 182, 173)
+    - entity: sensor.deye_inverter_daily_energy_bought
+      name: "$fn ({ ys,meta }) =>\n  \"Grid Import\" + \"\U0001F4A1\" + \"(\" +ys[ys.length - 1]+\"kWh)\"\n"
+      marker:
+        color: rgb(84, 144, 194)
+    - entity: sensor.deye_inverter_daily_battery_discharge
+      name: "$fn ({ ys,meta }) =>\n  \"Battery Discharge\" + \"\U0001F5B1️\" + \"(\" +ys[ys.length - 1]+\"kWh)\"\n"
+      marker:
+        color: rgb(151, 90, 182)
+    - entity: sensor.deye_inverter_daily_battery_charge
+      name: "$fn ({ ys,meta }) =>\n  \"Battery Charge\" + \"\U0001F50B\" + \"(\" +ys[ys.length - 1]+\"kWh)\"\n"
+      marker:
+        color: yellow
+    hours_to_show: 5d
+    title: Energia dzienna (5 dni)
+    refresh_interval: 120
+    defaults:
+      entity:
+        statistic: state
+        period: day
+        type: bar
+        texttemplate: '%{y}'
+        filters:
+        - filter: i>0
+      yaxes:
+        fixedrange: true
+    fn: "$fn({getFromConfig, vars})=> {\n  const range = getFromConfig(\"visible_range\");\n  const width = range[1] - range[0];\n\
+      \  vars.scroll = (label, p) => ({\n    args: [\n      {\n        layout: {\n          \"xaxis.range\": [range[0] + width*p,\
+      \ range[1] + width*p],\n        }\n      }, {\n        transition: {\n          duration: 150,\n        }\n      }\n\
+      \    ],\n    label,\n    method: \"animate\",\n  })\n  vars.zoom = (label, h) => ({\n    args: [\n      {\n        layout:\
+      \ {\n          \"xaxis.range\": [Date.now()-1000*60*60*h, Date.now()],\n        }\n      }\n    ],\n    label,\n   \
+      \ method: \"animate\",\n  })\n}\n"
+    layout:
+      updatemenus:
+      - buttons:
+        - $fn({vars}) => vars.zoom( '30d', 24*30)
+        - $fn({vars}) => vars.zoom( '14d', 24*14)
+        - $fn({vars}) => vars.zoom( '7d', 24*7)
+        - $fn({vars}) => vars.scroll( ' <', -.5)
+        - $fn({vars}) => vars.scroll( ' >', .5)
+        direction: null
+        active: -1
+        pad:
+          r: 10
+          t: 10
+        type: buttons
+        x: 1
+        xanchor: auto
+        y: 1
+        yanchor: auto
+      legend:
+        bgcolor: rgba(0,0,0,0)
+        yanchor: bottom
+        xanchor: left
+        x: 0
+        y: 1
+        font:
+          size: 11
+      height: 410
+    config:
+      displayModeBar: false
+      scrollZoom: false
+    time_offset: 12h
+  - type: custom:plotly-graph
+    view_layout:
+      grid-area: solar
+    hours_to_show: 4d
+    time_offset: 2.5d
+    refresh_interval: auto
+    entities:
+    - entity: sensor.inwerter_moc_czynna
+      name: Solar Power
+      line:
+        color: rgb(255, 155, 48)
+        shape: spline
+        width: 1
+      fill: tozeroy
+      fillcolor: rgba(255, 155, 48, 0.3)
+      yaxis: y3
+      show_value: false
+      showlegend: false
+    - entity: sensor.energy_production_today_2
+      line:
+        color: rgb(125, 125, 125)
+        shape: spline
+      fill: tozeroy
+      filters:
+      - fn: "({meta}) => {\n  const entries = Object.entries(meta.wh_period); \n  const xs = entries.map(([start, _]) => new\
+          \ Date(start));\n  const ys = entries.map(([_, value]) => value);\n  return { xs, ys };\n}\n"
+      yaxis: y1
+      showlegend: true
+    - entity: sensor.energy_production_tomorrow_2
+      line:
+        color: rgb(90,90,90)
+        shape: spline
+      fill: tozeroy
+      filters:
+      - fn: "({meta}) => {\n  const entries = Object.entries(meta.wh_period); \n  const xs = entries.map(([start, _]) => new\
+          \ Date(start));\n  const ys = entries.map(([_, value]) => value);\n  return { xs, ys };\n}\n"
+      yaxis: y1
+    - entity: sensor.energy_production_d2
+      line:
+        color: rgb(50,50,50)
+        shape: spline
+      fill: tozeroy
+      filters:
+      - fn: "({meta}) => {\n  const entries = Object.entries(meta.wh_period); \n  const xs = entries.map(([start, _]) => new\
+          \ Date(start));\n  const ys = entries.map(([_, value]) => value);\n  return { xs, ys };\n}\n"
+      yaxis: y1
+      showlegend: true
+    - entity: sensor.deye_inverter_battery
+      name: Battery
+      line:
+        color: red
+        shape: spline
+        width: 1
+      yaxis: y2
+      show_value: true
+      showlegend: false
+      visible: true
+    - entity: ''
+      name: Now
+      yaxis: y9
+      showlegend: false
+      line:
+        width: 2
+        dash: dot
+        color: aqua
+      x: $ex [Date.now(), Date.now()]
+      y:
+      - 0
+      - 1
+    defaults:
+      yaxes:
+        fixedrange: true
+    layout:
+      height: 410
+      margin:
+        t: 55
+        l: 50
+      showlegend: false
+      legend:
+        x: 0.1
+        y: -0.8
+      yaxis2:
+        range:
+        - 20
+        - 105
+        fixedrange: true
+      annotations:
+      - text: "$fn ({hass}) =>\n  \"<span style='font-size: 24px;'><span style='color: orange'>\"\n  + Number(hass.states['sensor.energy_production_today_2'].state).toFixed(1)\
+          \ + \"</span></span>kWh<br>\"\n  +  \"</span><span style=''>Forecast Today</span><br>\""
+        xref: x domain
+        yref: y domain
+        xanchor: center
+        yanchor: center
+        x: 0.06
+        y: 1.2
+        showarrow: false
+      - text: "$fn ({hass}) =>\n  \"<span style='font-size: 24px;'><span style='color: dodgerblue'>\"\n  + Number(hass.states['sensor.energy_production_today_remaining_2'].state).toFixed(1)\
+          \ + \"</span></span>kWh<br>\"\n  +  \"</span><span style=''>Remaining</span><br>\""
+        xref: x domain
+        yref: y domain
+        xanchor: center
+        yanchor: center
+        x: 0.28
+        y: 1.2
+        showarrow: false
+      - text: "$fn ({hass}) =>\n  \"<span style='font-size: 24px;'><span style='color: '>\"\n  + Number(hass.states['sensor.energy_production_tomorrow_2'].state).toFixed(1)\
+          \ + \"</span></span>kWh<br>\"\n  +  \"</span><span style=''>Forecast Tomorrow</span><br>\""
+        xref: x domain
+        yref: y domain
+        xanchor: center
+        yanchor: centre
+        x: 0.5
+        y: 1.2
+        showarrow: false
+      - text: "$fn ({hass}) =>\n  \"<span style='font-size: 24px;'><span style='color: white'>\"\n  + Number(hass.states['sensor.energy_production_d2'].state).toFixed(1)\
+          \ + \"</span></span>kWh<br>\"\n  +  \"</span><span style=''>Forecast Day 2</span><br>\""
+        xref: x domain
+        yref: y domain
+        xanchor: center
+        yanchor: center
+        x: 0.72
+        y: 1.2
+        showarrow: false
+      - text: "$fn ({hass}) =>\n  \"<span style='font-size: 24px;'><span style='color: red'>\"\n  + Number(hass.states['sensor.deye_inverter_battery'].state)\
+          \ + \"</span></span>%<br>\"\n  +  \"</span><span style=''>SOC</span><br>\""
+        xref: x domain
+        yref: y domain
+        xanchor: center
+        yanchor: center
+        x: 0.94
+        y: 1.2
+        showarrow: false
+    config:
+      scrollZoom: false
+  - type: custom:plotly-graph
+    view_layout:
+      grid-area: total
+    entities:
+    - entity: sensor.inwerter_calkowita_produkcja_energii
+      name: "$fn ({ ys,meta }) =>\n  \"Solar\" + \"\U0001F506\" + \"(\" +ys[ys.length - 1]+\"kWh)\"\n"
+      offset: $fn() => 1000*60*60*4.5
+      marker:
+        color: rgb(255, 155, 48)
+    - entity: sensor.deye_inverter_total_consumption
+      name: "$fn ({ ys,meta }) =>\n  \"Load\" + \"⚡\" + \"(\" +ys[ys.length - 1]+\"kWh)\"\n"
+      offset: $fn() => 1000*60*60*7.5
+      marker:
+        color: rgb(95, 182, 173)
+    - entity: sensor.deye_inverter_total_energy_bought
+      name: "$fn ({ ys,meta }) =>\n  \"Grid Import\" + \"\U0001F4A1\" + \"(\" +ys[ys.length - 1]+\"kWh)\"\n"
+      offset: $fn() => 1000*60*60*10.5
+      marker:
+        color: rgb(84, 144, 194)
+    - entity: sensor.deye_inverter_total_battery_discharge
+      name: "$fn ({ ys,meta }) =>\n  \"Bat Discharge\" + \"\U0001F5B1️\" + \"(\" +ys[ys.length - 1]+\"kWh)\"\n"
+      offset: $fn() => 1000*60*60*13.5
+      marker:
+        color: rgb(151, 90, 182)
+    - entity: sensor.deye_inverter_total_battery_charge
+      name: "$fn ({ ys,meta }) =>\n  \"Bat Charge\" + \"\U0001F50B\" + \"(\" +ys[ys.length - 1]+\"kWh)\"\n"
+      offset: $fn() => 1000*60*60*16.5
+      marker:
+        color: yellow
+    hours_to_show: current_day
+    defaults:
+      entity:
+        statistic: state
+        period: day
+        type: bar
+        width: $fn() => 1000*60*60*3
+        texttemplate: '%{y}'
+      yaxes:
+        fixedrange: true
+    title: Statystyki dnia
+    layout:
+      xaxis:
+        nticks: 1
+      height: 410
+    config:
+      displayModeBar: false
+      scrollZoom: false
+    refresh_interval: 60
+  - type: custom:plotly-graph
+    view_layout:
+      grid-area: stats
+    title: Generation Purpose
+    entities:
+    - entity: sensor.deye_inverter_output_power
+      type: pie
+      hole: 0.6
+      values: "$ex [ hass.states[\"sensor.deye_inverter_daily_battery_charge\"].state, hass.states[\"sensor.deye_inverter_output_power\"\
+        ].state\n ]"
+      marker:
+        colors:
+        - rgb(84, 144, 194)
+        - rgb(95, 182, 173)
+      textinfo: value+percent
+    hours_to_show: 1
+    refresh_interval: auto
+    layout:
+      height: 390
+      margin:
+        t: 60
+      showlegend: false
+      annotations:
+      - text: "$fn ({hass}) =>\n  \"<span style='font-size: 24px;'><span style='color: rgb(84, 144, 194)'>\"\n  + Number(hass.states['sensor.deye_inverter_daily_battery_charge'].state).toFixed(1)\
+          \ + \"</span></span>kWh<br>\"\n  +  \"</span><span style=''>Charging</span><br>\""
+        xref: paper
+        yref: paper
+        xanchor: center
+        yanchor: center
+        x: 0.9
+        y: 1.2
+        showarrow: false
+      - text: "$fn ({hass}) =>\n  \"<span style='font-size: 24px;'><span style='color: rgb(95, 182, 173)'>\"\n  + Number(hass.states['sensor.deye_inverter_daily_load_consumption'].state).toFixed(1)\
+          \ + \"</span></span>kWh<br>\"\n  +  \"</span><span style=''>Consumption</span><br>\""
+        xref: paper
+        yref: paper
+        xanchor: center
+        yanchor: center
+        x: 0.05
+        y: 1.2
+        showarrow: false
+  - type: custom:plotly-graph
+    view_layout:
+      grid-area: stats1
+    title: Generation Today
+    entities:
+    - entity: sensor.deye_inverter_daily_battery_charge
+      type: pie
+      hole: 0.6
+      values: $ex [ hass.states["sensor.deye_inverter_daily_battery_discharge"].state, hass.states["sensor.deye_inverter_daily_energy_bought"].state,
+        hass.states["sensor.jesionowa_huawei_be6lealydsl5gqs8bigicahcdhga8sdn_total_current_day_energy"].state ]
+      labels:
+      - Battery Charge
+      - Grid Offpeak
+      - Solar
+      marker:
+        colors:
+        - rgb(151, 90, 182)
+        - rgb(84, 144, 194)
+        - rgb(255, 155, 48)
+      textinfo: value+percent
+    hours_to_show: 1
+    refresh_interval: auto
+    layout:
+      height: 410
+      margin:
+        t: 60
+      showlegend: false
+      annotations:
+      - text: "$fn ({hass}) =>\n  \"<span style='font-size: 24px;'><span style='color: rgb(255, 155, 48'>\"\n  + Number(hass.states['sensor.jesionowa_huawei_be6lealydsl5gqs8bigicahcdhga8sdn_total_current_day_energy'].state).toFixed(1)\
+          \ + \"</span></span>kWh<br>\"\n  +  \"</span><span style=''>Solar</span><br>\""
+        xref: paper
+        yref: paper
+        xanchor: center
+        yanchor: center
+        x: 0.05
+        y: 1.2
+        showarrow: false
+      - text: "$fn ({hass}) =>\n  \"<span style='font-size: 24px;'><span style='color: rgb(151, 90, 182)'>\"\n  + Number(hass.states['sensor.deye_inverter_daily_battery_discharge'].state).toFixed(1)\
+          \ + \"</span></span>kWh<br>\"\n  +  \"</span><span style=''>Battery</span><br>\""
+        xref: paper
+        yref: paper
+        xanchor: center
+        yanchor: center
+        x: 0.5
+        y: 1.2
+        showarrow: false
+      - text: "$fn ({hass}) =>\n  \"<span style='font-size: 24px;'><span style='color: rgb(84, 144, 194)'>\"\n  + Number(hass.states['sensor.jesionowa_huawei_be6lealydsl5gqs8bigicahcdhga8sdn_total_current_day_energy'].state).toFixed(1)\
+          \ + \"</span></span>kWh<br>\"\n  +  \"</span><span style=''>Grid</span><br>\""
+        xref: paper
+        yref: paper
+        xanchor: center
+        yanchor: centre
+        x: 0.9
+        y: 1.2
+        showarrow: false
+  - type: custom:flex-horseshoe-card
+    view_layout:
+      grid-area: g1
+    entities:
+    - entity: sensor.inwerter_moc_czynna
+      decimals: 0
+      unit: W
+      name: huawei PV
+    - entity: sensor.inwerter_moc_czynna_pv_1
+      decimals: 0
+      unit: W
+      name: PV1
+    - entity: sensor.inwerter_moc_czynna_pv_3
+      decimals: 0
+      unit: W
+      name: PV3
+    - entity: sensor.inwerter_napiecie_pv_1
+      decimals: 0
+      unit: V
+    - entity: sensor.inwerter_napiecie_pv_3
+      decimals: 0
+      unit: V
+    - entity: sensor.inwerter_prad_pv_1
+      decimals: 1
+      unit: A
+    - entity: sensor.inwerter_prad_pv_3
+      decimals: 1
+      unit: A
+    - entity: sensor.inwerter_dzienna_produkcja
+      decimals: 2
+      unit: kWh
+      name: Daily
+    - entity: sensor.energy_production_today_remaining_2
+      decimals: 2
+      unit: kWh
+      name: Left Today
+    show:
+      horseshoe_style: lineargradient
+    layout:
+      hlines:
+      - id: 0
+        xpos: 50
+        ypos: 40
+        length: 70
+        styles:
+        - opacity: 0.2;
+      vlines:
+      - id: 0
+        xpos: 50
+        ypos: 59
+        length: 36
+        styles:
+        - opacity: 0.2;
+      states:
+      - id: 0
+        entity_index: 0
+        xpos: 50
+        ypos: 33
+        styles:
+        - font-size: 3em;
+        - opacity: 0.9;
+      - id: 1
+        entity_index: 1
+        xpos: 47
+        ypos: 53
+        styles:
+        - font-size: 1.5em;
+        - text-anchor: end;
+      - id: 2
+        entity_index: 2
+        xpos: 53
+        ypos: 53
+        styles:
+        - text-anchor: start;
+        - font-size: 1.5em;
+      - id: 3
+        entity_index: 3
+        xpos: 46
+        ypos: 63
+        styles:
+        - text-anchor: end;
+        - font-size: 1.5em;
+      - id: 4
+        entity_index: 4
+        xpos: 53
+        ypos: 63
+        styles:
+        - text-anchor: start;
+        - font-size: 1.5em;
+      - id: 5
+        entity_index: 5
+        xpos: 46
+        ypos: 73
+        styles:
+        - text-anchor: end;
+        - font-size: 1.5em;
+      - id: 6
+        entity_index: 6
+        xpos: 53
+        ypos: 73
+        styles:
+        - text-anchor: start;
+        - font-size: 1.5em;
+      - id: 7
+        entity_index: 7
+        xpos: 0
+        ypos: 7
+        styles:
+        - text-anchor: start;
+        - font-size: 1.2em;
+      - id: 8
+        entity_index: 8
+        xpos: 75
+        ypos: 7
+        styles:
+        - text-anchor: start;
+        - font-size: 1.2em;
+      icons: null
+      names:
+      - id: 0
+        entity_index: 0
+        xpos: 50
+        ypos: 95
+        styles:
+        - font-size: 1.2em;
+      - id: 1
+        entity_index: 1
+        xpos: 15
+        ypos: 45
+        styles:
+        - text-anchor: start;
+        - font-size: 0.5em;
+      - id: 2
+        entity_index: 2
+        xpos: 85
+        ypos: 45
+        styles:
+        - text-anchor: end;
+        - font-size: 0.5em;
+      - id: 3
+        entity_index: 7
+        xpos: 0
+        ypos: 12
+        styles:
+        - text-anchor: start;
+        - font-size: 0.5em;
+      - id: 4
+        entity_index: 8
+        xpos: 80
+        ypos: 12
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: start;
+    horseshoe_scale:
+      min: 0
+      max: 22000
+      width: 6
+    color_stops:
+      '0': '#FFF6E3'
+      '1000': '#FFE9B9'
+      '2000': '#FFDA8A'
+      '4000': '#FFCB5B'
+      '6000': '#FFBF37'
+      '8000': '#ffb414'
+      '11000': '#FFAD12'
+      '14000': '#FFA40E'
+      '16000': '#FF9C0B'
+      '20000': '#FF8C06'
+    card_mod:
+      style: "ha-card {\n  --ha-card-background: var(--card-background-color);\n  color: var(--primary-color); \n}\n"
+  - type: custom:flex-horseshoe-card
+    view_layout:
+      grid-area: g2
+    entities:
+    - entity: sensor.batt_soc
+      decimals: 0
+      unit: '%'
+      name: BATTERY
+    - entity: sensor.batt_v
+      decimals: 2
+      unit: V
+    - entity: sensor.batt_current
+      decimals: 2
+      unit: A
+    - entity: sensor.batt_power
+      decimals: 2
+      unit: kW
+    - entity: sensor.deye_inverter_daily_battery_discharge
+      decimals: 2
+      unit: kWh
+      name: Discharge
+    - entity: sensor.deye_inverter_daily_battery_charge
+      decimals: 2
+      unit: kWh
+      name: Charge
+    - entity: sensor.temp_avg_c
+      decimals: 0
+      unit: °C
+      name: Temp
+    show:
+      horseshoe_style: lineargradient
+    layout:
+      hlines:
+      - id: 0
+        xpos: 50
+        ypos: 40
+        length: 70
+        styles:
+        - opacity: 0.2;
+      - id: 0
+        xpos: 50
+        ypos: 60
+        length: 70
+        styles:
+        - opacity: 0.2;
+      vlines:
+      - id: 0
+        xpos: 50
+        ypos: 50
+        length: 18
+        styles:
+        - opacity: 0.2;
+      states:
+      - id: 0
+        entity_index: 0
+        xpos: 50
+        ypos: 33
+        styles:
+        - font-size: 3em;
+        - opacity: 0.9;
+      - id: 1
+        entity_index: 1
+        xpos: 44
+        ypos: 53
+        styles:
+        - font-size: 1.5em;
+        - text-anchor: end;
+      - id: 2
+        entity_index: 2
+        xpos: 55
+        ypos: 53
+        styles:
+        - text-anchor: start;
+        - font-size: 1.5em;
+      - id: 3
+        entity_index: 3
+        xpos: 50
+        ypos: 75
+        styles:
+        - text-anchor: middle;
+        - font-size: 2em;
+      - id: 4
+        entity_index: 4
+        xpos: 76
+        ypos: 7
+        styles:
+        - text-anchor: start;
+        - font-size: 1.2em;
+      - id: 5
+        entity_index: 5
+        xpos: 0
+        ypos: 7
+        styles:
+        - text-anchor: start;
+        - font-size: 1.2em;
+      - id: 6
+        entity_index: 6
+        xpos: 50
+        ypos: 88
+        styles:
+        - text-anchor: middle;
+        - font-size: 1.2em;
+      icons:
+      - id: 0
+        entity_index: 0
+        xpos: 75
+        ypos: 30
+        icon: mdi:battery-30
+        styles:
+        - font-size: 2em;
+        - opacity: 0.9;
+        - color: '#ffaa00'
+      names:
+      - id: 0
+        entity_index: 0
+        xpos: 50
+        ypos: 95
+        styles:
+        - font-size: 1.2em;
+      - id: 1
+        entity_index: 4
+        xpos: 81
+        ypos: 12
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: start;
+      - id: 2
+        entity_index: 5
+        xpos: 0
+        ypos: 12
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: start;
+      - id: 3
+        entity_index: 6
+        xpos: 50
+        ypos: 93
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: middle;
+    horseshoe_scale:
+      min: 0
+      max: 100
+      width: 6
+    color_stops:
+      '0': '#ff0000'
+      '10': '#ff4000'
+      '20': '#ff8000'
+      '30': '#ffaa00'
+      '40': '#ffcc00'
+      '50': '#ffff00'
+      '60': '#ccff00'
+      '70': '#99ff00'
+      '80': '#66ff00'
+      '90': '#33ff00'
+      '100': '#00ff00'
+  - type: custom:flex-horseshoe-card
+    view_layout:
+      grid-area: g3
+    entities:
+    - entity: sensor.deye_inverter_output_power
+      unit: W
+      name: AC output
+    - entity: sensor.deye_inverter_output_l1_voltage
+      decimals: 0
+      unit: V
+    - entity: sensor.deye_inverter_output_frequency
+      decimals: 2
+      unit: Hz
+      name: Grid
+    - entity: sensor.deye_inverter_grid_power
+      decimals: 0
+      unit: W
+      name: Grid
+    - entity: sensor.deye_inverter_daily_energy_bought
+      decimals: 2
+      unit: kWh
+      name: Import
+    - entity: sensor.deye_inverter_daily_load_consumption
+      decimals: 2
+      unit: kWh
+      name: Daily
+    show:
+      horseshoe_style: lineargradient
+      color_stops: null
+    layout:
+      hlines:
+      - id: 0
+        xpos: 50
+        ypos: 40
+        length: 70
+        styles:
+        - opacity: 0.2;
+      - id: 0
+        xpos: 50
+        ypos: 60
+        length: 70
+        styles:
+        - opacity: 0.2;
+      vlines:
+      - id: 0
+        xpos: 50
+        ypos: 50
+        length: 18
+        styles:
+        - opacity: 0.2;
+      states:
+      - id: 0
+        entity_index: 0
+        xpos: 50
+        ypos: 33
+        styles:
+        - font-size: 3em;
+        - opacity: 0.9;
+        - text-anchor: middle;
+      - id: 1
+        entity_index: 1
+        xpos: 44
+        ypos: 53
+        styles:
+        - font-size: 1.5em;
+        - text-anchor: end;
+      - id: 2
+        entity_index: 2
+        xpos: 55
+        ypos: 53
+        styles:
+        - text-anchor: start;
+        - font-size: 1.5em;
+      - id: 3
+        entity_index: 3
+        xpos: 50
+        ypos: 75
+        styles:
+        - text-anchor: middle;
+        - font-size: 2em;
+      - id: 4
+        entity_index: 4
+        xpos: 75
+        ypos: 7
+        styles:
+        - text-anchor: start;
+        - font-size: 1.2em;
+      - id: 5
+        entity_index: 5
+        xpos: 0
+        ypos: 7
+        styles:
+        - text-anchor: start;
+        - font-size: 1.2em;
+      icons: null
+      names:
+      - id: 0
+        entity_index: 0
+        xpos: 50
+        ypos: 95
+        styles:
+        - font-size: 1.2em;
+      - id: 1
+        entity_index: 4
+        xpos: 85
+        ypos: 12
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: start;
+      - id: 2
+        entity_index: 5
+        xpos: 0
+        ypos: 12
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: start;
+      - id: 3
+        entity_index: 3
+        xpos: 50
+        ypos: 80
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: middle;
+    horseshoe_scale:
+      min: -22000
+      max: 22000
+      width: 6
+    color_stops:
+      '0': '#FFF6E3'
+      '10': '#FFE9B9'
+      '20': '#FFDA8A'
+      '30': '#FFCB5B'
+      '40': '#FFBF37'
+      '50': '#ffb414'
+      '60': '#FFAD12'
+      '70': '#FFA40E'
+      '80': '#FF9C0B'
+      '90': '#FF8C06'
+    card_mod:
+      style: "ha-card {\n  --ha-card-background: var(--card-background-color);\n  color: var(--primary-color); \n}\n"
+  - type: custom:flex-horseshoe-card
+    view_layout:
+      grid-area: g4
+    entities:
+    - entity: sensor.zamel_thw_01_temperature_2
+      decimals: 1
+      unit: °C
+    - entity: sensor.zig_szafa_garaz_voltage
+      decimals: 0
+      unit: V
+    - entity: sensor.zig_szafa_garaz_current
+      decimals: 2
+      unit: A
+    - entity: sensor.zig_szafa_garaz_power
+      decimals: 0
+      unit: W
+    - entity: sensor.zig_szafa_garaz_energy
+      decimals: 1
+      unit: kWh
+    horseshoe_scale:
+      min: 0
+      max: 40
+      width: 6
+    color_stops:
+      '22': blue
+      '40': red
+    show:
+      horseshoe_style: lineargradient
+    layout:
+      hlines:
+      - id: 0
+        xpos: 50
+        ypos: 40
+        length: 70
+        styles:
+        - opacity: 0.2;
+      - id: 1
+        xpos: 50
+        ypos: 60
+        length: 70
+        styles:
+        - opacity: 0.2;
+      vlines:
+      - id: 0
+        xpos: 50
+        ypos: 50
+        length: 20
+        styles:
+        - opacity: 0.2;
+      states:
+      - id: 0
+        entity_index: 0
+        xpos: 50
+        ypos: 33
+        styles:
+        - font-size: 3em;
+        - opacity: 0.9;
+        - text-anchor: middle;
+        tap_action:
+          action: more-info
+      - id: 1
+        entity_index: 1
+        xpos: 44
+        ypos: 53
+        styles:
+        - font-size: 1.5em;
+        - text-anchor: end;
+        tap_action:
+          action: more-info
+      - id: 2
+        entity_index: 2
+        xpos: 55
+        ypos: 53
+        styles:
+        - font-size: 1.5em;
+        - text-anchor: start;
+        tap_action:
+          action: more-info
+      - id: 3
+        entity_index: 3
+        xpos: 50
+        ypos: 75
+        styles:
+        - font-size: 2em;
+        - text-anchor: middle;
+        tap_action:
+          action: more-info
+      - id: 4
+        entity_index: 4
+        xpos: 75
+        ypos: 7
+        styles:
+        - font-size: 1.2em;
+        - text-anchor: start;
+        tap_action:
+          action: more-info
+      icons: null
+      names:
+      - id: 0
+        entity_index: 0
+        xpos: 50
+        ypos: 95
+        text: Garaż Serwerownia
+        styles:
+        - font-size: 1.2em;
+        - text-anchor: middle;
+      - id: 1
+        entity_index: 1
+        xpos: 15
+        ypos: 45
+        text: Napięcie
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: start;
+      - id: 2
+        entity_index: 3
+        xpos: 85
+        ypos: 45
+        text: Moc
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: end;
+      - id: 3
+        entity_index: 2
+        xpos: 0
+        ypos: 12
+        text: Prąd
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: start;
+      - id: 4
+        entity_index: 4
+        xpos: 80
+        ypos: 12
+        text: Zużycie dzienne
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: start;
+    card_mod:
+      style: "ha-card {\n  --ha-card-background: var(--card-background-color);\n  color: var(--primary-color);\n}\n"
+  - type: custom:flex-horseshoe-card
+    view_layout:
+      grid-area: g5
+    entities:
+    - entity: sensor.myszeczka_poziom_naladowania_baterii
+      decimals: 0
+      unit: '%'
+      name: TESLA
+    - entity: sensor.myszeczka_battery_range
+      decimals: 0
+      unit: km
+      name: ZASIĘG
+    - entity: number.myszeczka_charge_current
+      decimals: 0
+      unit: A
+      name: PRĄD
+    - entity: sensor.myszeczka_charging
+      name: ŁADOWANIE
+    - entity: lock.myszeczka_lock
+      name: DRZWI
+    horseshoe_scale:
+      min: 0
+      max: 100
+      width: 6
+    color_stops:
+      '20': red
+      '40': yellow
+      '60': green
+    show:
+      horseshoe_style: lineargradient
+    layout:
+      hlines:
+      - id: 0
+        xpos: 50
+        ypos: 40
+        length: 70
+        styles:
+        - opacity: 0.2
+      - id: 1
+        xpos: 50
+        ypos: 60
+        length: 70
+        styles:
+        - opacity: 0.2
+      vlines:
+      - id: 0
+        xpos: 50
+        ypos: 50
+        length: 20
+        styles:
+        - opacity: 0.2
+      states:
+      - id: 0
+        entity_index: 0
+        xpos: 50
+        ypos: 33
+        styles:
+        - font-size: 3em;
+        - opacity: 0.9;
+        - text-anchor: middle;
+        tap_action:
+          action: more-info
+      - id: 1
+        entity_index: 1
+        xpos: 44
+        ypos: 53
+        styles:
+        - font-size: 1.5em;
+        - text-anchor: end;
+        tap_action:
+          action: more-info
+      - id: 2
+        entity_index: 3
+        xpos: 55
+        ypos: 53
+        styles:
+        - font-size: 1.5em;
+        - text-anchor: start;
+        tap_action:
+          action: more-info
+      - id: 3
+        entity_index: 2
+        xpos: 50
+        ypos: 75
+        styles:
+        - font-size: 2em;
+        - text-anchor: middle;
+        tap_action:
+          action: more-info
+      - id: 4
+        entity_index: 4
+        xpos: 75
+        ypos: 7
+        styles:
+        - font-size: 1.2em;
+        - text-anchor: start;
+        tap_action:
+          action: more-info
+      icons: null
+      names:
+      - id: 0
+        entity_index: 0
+        xpos: 50
+        ypos: 95
+        text: Tesla Model 3
+        styles:
+        - font-size: 1.2em;
+        - text-anchor: middle;
+      - id: 1
+        entity_index: 1
+        xpos: 15
+        ypos: 45
+        text: Zasięg
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: start;
+      - id: 2
+        entity_index: 3
+        xpos: 85
+        ypos: 45
+        text: Ładowanie
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: end;
+      - id: 3
+        entity_index: 2
+        xpos: 0
+        ypos: 12
+        text: Prąd
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: start;
+      - id: 4
+        entity_index: 4
+        xpos: 80
+        ypos: 12
+        text: Drzwi
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: start;
+    card_mod:
+      style: "ha-card {\n  --ha-card-background: var(--card-background-color);\n  color: var(--primary-color);\n}\n"
+  - type: custom:flex-horseshoe-card
+    view_layout:
+      grid-area: g6
+    entities:
+    - entity: sensor.zamel_kotlownia_temperature
+      decimals: 1
+      unit: °C
+      name: Kotłownia
+    - entity: sensor.woda_dom_dzienne
+      decimals: 3
+      unit: m³
+      name: Dom dziennie
+    - entity: sensor.woda_ogrod_dzienne
+      decimals: 3
+      unit: m³
+      name: Ogród dziennie
+    - entity: sensor.woda_dom_miesieczne
+      decimals: 3
+      unit: m³
+      name: Dom mies.
+    - entity: sensor.zamel_kotlownia_humidity
+      decimals: 1
+      unit: '%'
+      name: Wilgotność
+    - entity: switch.piec_gazowy
+      name: Piec gazowy
+    horseshoe_scale:
+      min: 0
+      max: 40
+      width: 6
+    color_stops:
+      '20': blue
+      '30': red
+    show:
+      horseshoe_style: lineargradient
+    layout:
+      hlines:
+      - id: 0
+        xpos: 50
+        ypos: 40
+        length: 70
+        styles:
+        - opacity: 0.2;
+      - id: 1
+        xpos: 50
+        ypos: 60
+        length: 70
+        styles:
+        - opacity: 0.2;
+      vlines:
+      - id: 0
+        xpos: 50
+        ypos: 50
+        length: 20
+        styles:
+        - opacity: 0.2;
+      states:
+      - id: 0
+        entity_index: 0
+        xpos: 50
+        ypos: 33
+        styles:
+        - font-size: 3em;
+        - opacity: 0.9;
+        - text-anchor: middle;
+        tap_action:
+          action: more-info
+      - id: 1
+        entity_index: 1
+        xpos: 44
+        ypos: 53
+        styles:
+        - font-size: 1.5em;
+        - text-anchor: end;
+        tap_action:
+          action: more-info
+      - id: 2
+        entity_index: 2
+        xpos: 55
+        ypos: 53
+        styles:
+        - font-size: 1.5em;
+        - text-anchor: start;
+        tap_action:
+          action: more-info
+      - id: 3
+        entity_index: 3
+        xpos: 50
+        ypos: 75
+        styles:
+        - font-size: 2em;
+        - text-anchor: middle;
+        tap_action:
+          action: more-info
+      - id: 4
+        entity_index: 4
+        xpos: 75
+        ypos: 7
+        styles:
+        - font-size: 1.2em;
+        - text-anchor: start;
+        tap_action:
+          action: more-info
+      - id: 5
+        entity_index: 5
+        xpos: 20
+        ypos: 10
+        styles:
+        - font-size: 1.5em;
+        - font-weight: bold;
+        - opacity: 1;
+        - text-anchor: start;
+        - fill: black;
+        tap_action:
+          action: toggle
+        value_template: '{{ ''WŁĄCZONY'' if is_state(''switch.piec_gazowy'', ''on'') else ''WYŁĄCZONY'' }}
+
+          '
+      icons: null
+      names:
+      - id: 0
+        entity_index: 0
+        xpos: 50
+        ypos: 95
+        text: Kotłownia
+        styles:
+        - font-size: 1.2em;
+        - text-anchor: middle;
+      - id: 1
+        entity_index: 1
+        xpos: 15
+        ypos: 45
+        text: Dom dziś
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: start;
+      - id: 2
+        entity_index: 3
+        xpos: 85
+        ypos: 45
+        text: Dom mies.
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: end;
+      - id: 3
+        entity_index: 2
+        xpos: 0
+        ypos: 12
+        text: Ogród dziś
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: start;
+      - id: 4
+        entity_index: 4
+        xpos: 80
+        ypos: 12
+        text: Wilgotność
+        styles:
+        - font-size: 0.5em;
+        - text-anchor: start;
+      - id: 5
+        entity_index: 5
+        xpos: 10
+        ypos: 20
+        text: Piec
+        styles:
+        - font-size: 0.7em;
+        - text-anchor: start;
+    card_mod:
+      style: "ha-card {\n  --ha-card-background: var(--card-background-color);\n  color: var(--primary-color);\n}\n"
+  - type: custom:plotly-graph
+    view_layout:
+      grid-area: sg
+    entities:
+    - entity: sensor.inwerter_dzienna_produkcja
+      name: "$fn ({ ys,meta }) =>\n  \"Solar\" + \"\U0001F506\" + \"(\" +ys[ys.length - 1]+\"kWh)\"\n"
+      type: bar
+      filters:
+      - filter: i>0
+      marker:
+        color: rgb(255, 155, 48)
+    - entity: sensor.deye_inverter_daily_energy_bought
+      name: "$fn ({ ys,meta }) =>\n  \"Grid Import\" + \"\U0001F4A1\" + \"(\" +ys[ys.length - 1]+\"kWh)\"\n"
+      type: bar
+      filters:
+      - filter: i>0
+      marker:
+        color: rgb(84, 144, 194)
+    - entity: sensor.deye_inverter_daily_load_consumption
+      show_value: true
+      name: "$fn ({ ys,meta }) =>\n  \"Load\" + \"⚡\" + \"(\" +ys[ys.length - 1]+\"kWh)\"\n"
+      type: line
+      line:
+        color: rgb(95, 182, 173)
+        width: 2
+    hours_to_show: 31d
+    title: Bilans energetyczny
+    refresh_interval: 600
+    defaults:
+      entity:
+        statistic: state
+        period: day
+        texttemplate: '%{y}'
+      yaxes:
+        fixedrange: true
+    fn: "$fn({getFromConfig, vars})=> {\n  const range = getFromConfig(\"visible_range\");\n  const width = range[1] - range[0];\n\
+      \  vars.scroll = (label, p) => ({\n    args: [\n      {\n        layout: {\n          \"xaxis.range\": [range[0] + width*p,\
+      \ range[1] + width*p],\n        }\n      }, {\n        transition: {\n          duration: 150,\n        }\n      }\n\
+      \    ],\n    label,\n    method: \"animate\",\n  })\n  vars.zoom = (label, h) => ({\n    args: [\n      {\n        layout:\
+      \ {\n          \"xaxis.range\": [Date.now()-1000*60*60*h, Date.now()],\n        }\n      }\n    ],\n    label,\n   \
+      \ method: \"animate\",\n  })\n}\n"
+    layout:
+      updatemenus:
+      - buttons:
+        - $fn({vars}) => vars.scroll( '<', -.5)
+        - $fn({vars}) => vars.scroll( '>', .5)
+        direction: right
+        active: -1
+        pad:
+          r: 10
+          t: 10
+        type: buttons
+        x: 1
+        xanchor: right
+        y: 1.25
+        yanchor: top
+      - buttons:
+        - $fn({vars}) => vars.zoom( '90d', 24*90)
+        - $fn({vars}) => vars.zoom( '30d', 24*30)
+        - $fn({vars}) => vars.zoom( '7d', 24*7)
+        direction: right
+        active: -1
+        pad:
+          r: 10
+          t: 10
+        type: buttons
+        x: 0
+        xanchor: left
+        y: 1.25
+        yanchor: top
+      barmode: stack
+      legend:
+        bgcolor: rgba(0,0,0,0)
+        itemsizing: constant
+        font:
+          size: 11
+      height: 410
+    config:
+      displayModeBar: false
+      scrollZoom: false
+  - type: custom:plotly-graph
+    view_layout:
+      grid-area: m
+    entities:
+    - entity: sensor.jesionowa_huawei_be6lealydsl5gqs8bigicahcdhga8sdn_total_current_day_energy
+      statistic: sum
+      name: "$fn ({ ys,meta }) =>\n  \"Solar\" + \"\U0001F506\"\n"
+      period: month
+      type: bar
+      width: $fn() => 1000*60*60*130
+      offset: $fn() => -1000*60*60*325
+      texttemplate: '%{y}'
+      filters:
+      - delta
+      marker:
+        color: rgb(255, 155, 48)
+    - entity: sensor.deye_inverter_daily_load_consumption
+      statistic: sum
+      name: "$fn ({ ys,meta }) =>\n  \"Load\" + \"⚡\"\n"
+      period: month
+      type: bar
+      filters:
+      - delta
+      width: $fn() => 1000*60*60*130
+      offset: $fn() => -1000*60*60*195
+      texttemplate: '%{y}'
+      marker:
+        color: rgb(95, 182, 173)
+    - entity: sensor.deye_inverter_daily_energy_bought
+      statistic: sum
+      name: "$fn ({ ys,meta }) =>\n  \"Grid Import\" + \"\U0001F4A1\"\n"
+      period: month
+      type: bar
+      texttemplate: '%{y}'
+      width: $fn() => 1000*60*60*130
+      filters:
+      - delta
+      marker:
+        color: rgb(84, 144, 194)
+    - entity: sensor.deye_inverter_daily_battery_discharge
+      statistic: sum
+      name: "$fn ({ ys,meta }) =>\n  \"Battery Discharge\" + \"\U0001F50B\"\n"
+      period: month
+      type: bar
+      width: $fn() => 1000*60*60*130
+      offset: $fn() => 1000*60*60*65
+      texttemplate: '%{y}'
+      filters:
+      - delta
+      marker:
+        color: rgb(151, 90, 182)
+    - entity: sensor.deye_inverter_daily_battery_charge
+      statistic: sum
+      name: "$fn ({ ys,meta }) =>\n  \"Battery Charge\" + \"\U0001F50B\"\n"
+      period: month
+      type: bar
+      width: $fn() => 1000*60*60*130
+      offset: $fn() => 1000*60*60*195
+      texttemplate: '%{y}'
+      filters:
+      - delta
+      marker:
+        color: yellow
+    hours_to_show: 6M
+    title: Monthly Production
+    refresh_interval: 600
+    defaults:
+      yaxes:
+        fixedrange: true
+    layout:
+      legend:
+        bgcolor: rgba(0,0,0,0)
+        itemsizing: constant
+        font:
+          size: 11
+      height: 410
+    config:
+      displayModeBar: false
+      scrollZoom: false
+    time_offset: 1M
+  - type: custom:plotly-graph
+    entities:
+    - entity: sensor.deye_inverter_daily_energy_bought
+      texttemplate: '%{y:.1f}'
+      name: Import
+      type: bar
+      statistic: state
+      period: day
+      marker:
+        color: '#5e90c1'
+        opacity: 1
+      filters:
+      - filter: i>0 && i < xs.length - 1
+      - fn: "({ys,xs,hass}) => ({\n  xs: [...xs, new Date().setHours(0,0,0)],\n  ys: [...ys, hass.states['sensor.deye_inverter_daily_energy_bought'].state],\n\
+          })\n"
+    - entity: sensor.deye_inverter_daily_battery_discharge
+      texttemplate: '%{y:.1f}'
+      name: Discharge
+      type: bar
+      statistic: state
+      period: day
+      marker:
+        color: '#935bb6'
+        opacity: 1
+      filters:
+      - filter: i>0 && i < xs.length - 1
+      - fn: "({ys,xs,hass}) => ({\n  xs: [...xs, new Date().setHours(0,0,0)],\n  ys: [...ys, hass.states['sensor.deye_inverter_daily_battery_discharge'].state],\n\
+          })\n"
+    - entity: sensor.jesionowa_huawei_be6lealydsl5gqs8bigicahcdhga8sdn_total_current_day_energy
+      texttemplate: '%{y:.1f}'
+      textposition: outside
+      name: Production
+      type: bar
+      statistic: state
+      period: day
+      marker:
+        color: orange
+        opacity: 1
+      filters:
+      - filter: i>0 && i < xs.length - 1
+      - fn: "({ys,xs,hass}) => ({\n  xs: [...xs, new Date().setHours(0,0,0)],\n  ys: [...ys, hass.states['sensor.jesionowa_huawei_be6lealydsl5gqs8bigicahcdhga8sdn_total_current_day_energy'].state],\n\
+          })\n"
+    - entity: sensor.deye_inverter_daily_load_consumption
+      texttemplate: '%{y:.1f}'
+      name: Consumption
+      type: bar
+      statistic: state
+      period: day
+      marker:
+        color: '#6cb6ac'
+        opacity: 0.9
+      filters:
+      - map_y_numbers: y *(-1)
+      - filter: i>0 && i < xs.length - 1
+      - fn: "({ys,xs,hass}) => ({\n  xs: [...xs, new Date().setHours(0,0,0)],\n  ys: [...ys, hass.states['sensor.deye_inverter_daily_load_consumption'].state\
+          \ * (-1)],\n})\n"
+    - entity: sensor.deye_inverter_daily_battery_charge
+      texttemplate: '%{y:.1f}'
+      textposition: outside
+      name: Charge
+      type: bar
+      statistic: state
+      period: day
+      marker:
+        color: '#fdff1d'
+        opacity: 0.9
+      filters:
+      - map_y_numbers: y *(-1)
+      - filter: i>0 && i < xs.length - 1
+      - fn: "({ys,xs,hass}) => ({\n  xs: [...xs, new Date().setHours(0,0,0)],\n  ys: [...ys, hass.states['sensor.deye_inverter_daily_battery_charge'].state\
+          \ * (-1)],\n})\n"
+    - entity: sensor.deye_inverter_daily_energy_sold
+      texttemplate: '%{y:.1f}'
+      name: Export
+      type: bar
+      statistic: state
+      period: day
+      marker:
+        color: '#385674'
+        opacity: 0.9
+      filters:
+      - map_y_numbers: y *(-1)
+      - filter: i>0 && i < xs.length - 1
+      - fn: "({ys,xs,hass}) => ({\n  xs: [...xs, new Date().setHours(0,0,0)],\n  ys: [...ys, hass.states['sensor.deye_inverter_daily_energy_sold'].state\
+          \ * (-1)],\n})\n"
+    fn: "$fn({getFromConfig, vars})=> {\n  const range = getFromConfig(\"visible_range\");\n  const width = range[1] - range[0];\n\
+      \  vars.scroll = (label, p) => ({\n    args: [\n      {\n        layout: {\n          \"xaxis.range\": [range[0] + width*p,\
+      \ range[1] + width*p],\n        }\n      }, {\n        transition: {\n          duration: 150,\n        }\n      }\n\
+      \    ],\n    label,\n    method: \"animate\",\n  })\n  vars.zoom = (label, h) => ({\n    args: [\n      {\n        layout:\
+      \ {\n          \"xaxis.range\": [Date.now()-1000*60*60*h, Date.now()],\n        }\n      }\n    ],\n    label,\n   \
+      \ method: \"animate\",\n  })\n}\n"
+    layout:
+      updatemenus:
+      - buttons:
+        - $fn({vars}) => vars.scroll( '<', -.5)
+        - $fn({vars}) => vars.scroll( '>', .5)
+        direction: right
+        active: -1
+        pad:
+          r: 10
+          t: 10
+        type: buttons
+        x: 1
+        xanchor: right
+        y: 1.25
+        yanchor: top
+      - buttons:
+        - $fn({vars}) => vars.zoom( '60d', 24*60)
+        - $fn({vars}) => vars.zoom( '30d', 24*30)
+        - $fn({vars}) => vars.zoom( '15d', 24*15)
+        direction: right
+        active: -1
+        pad:
+          r: 10
+          t: 10
+        type: buttons
+        x: 0
+        xanchor: left
+        y: 1.25
+        yanchor: top
+      barmode: relative
+      bargap: 0.2
+      height: 520
+      legend:
+        bgcolor: rgba(0,0,0,0)
+        itemsizing: constant
+        font:
+          size: 11
+      xaxis:
+        showgrid: true
+        linewidth: 0
+        linecolor: null
+      yaxis:
+        visible: true
+        fixedrange: true
+    hours_to_show: 31d
+    config:
+      scrollZoom: false
+    refresh_interval: auto
+    view_layout:
+      grid-area: ge
+    title: Historia 31 dni
+  - type: custom:plotly-graph
+    view_layout:
+      grid-area: energy
+    hours_to_show: current_day
+    title: System Timer
+    time_offset: 1h
+    refresh_interval: auto
+    fn: "$fn({hass, vars}) => {\n  vars.computeAll = () => {\n    const timeSlots = [\n      {start: 1, end: 2, cap: 1},\n\
+      \      {start: 2, end: 3, cap: 2},\n      {start: 3, end: 4, cap: 3},\n      {start: 4, end: 5, cap: 4},\n      {start:\
+      \ 5, end: 6, cap: 5},\n      {start: 6, end: 1, cap: 6}\n    ];\n\n    const now = new Date();\n    const xs = [];\n\
+      \    const ys = [];\n\n    timeSlots.forEach(({start, end, cap}) => {\n      const startTimeString = hass.states[`time.deye_inverter_time_of_use_${start}_start`].state;\n\
+      \      const endTimeString = hass.states[`time.deye_inverter_time_of_use_${end}_start`].state;\n      const capacity\
+      \ = parseFloat(hass.states[`number.deye_inverter_time_of_use_${cap}_soc`].state);\n\n      const [startHours, startMinutes]\
+      \ = startTimeString.split(':').map(Number);\n      const [endHours, endMinutes] = endTimeString.split(':').map(Number);\n\
+      \n      const startTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), startHours, startMinutes);\n  \
+      \    let endTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), endHours, endMinutes);\n\n      if (endTime\
+      \ < startTime) {\n        endTime.setDate(endTime.getDate() + 1);\n      }\n\n      xs.push(startTime, endTime);\n \
+      \     ys.push(capacity, capacity);\n    });\n\n    return { xs, ys };\n  }\n}\n"
+    entities:
+    - entity: sensor.deye_inverter_battery
+      name: "$fn ({ ys,meta }) =>\n  \"SOC\" + \"\U0001F50B\" + \"(\" +ys[ys.length - 1]+\"%)\"\n"
+      line:
+        color: red
+        shape: spline
+        width: 1
+      fillcolor: rgba(255,0,0, 0.3)
+      show_value: true
+      texttemplate: '%{y}'
+    - entity: sensor.jesionowa_huawei_be6lealydsl5gqs8bigicahcdhga8sdn_realtime_power
+      name: "$fn ({ ys,meta }) =>\n  \"Solar\" + \"\U0001F506\" + \"(\" +ys[ys.length - 1]+\"W)\"\n"
+      line:
+        color: rgb(255, 155, 48)
+        shape: spline
+        width: 1
+      fill: tozeroy
+      fillcolor: rgba(255, 155, 48, 0.3)
+      yaxis: y2
+      show_value: false
+      showlegend: true
+    - entity: sensor.deye_inverter_grid_power
+      name: "$fn ({ ys,meta }) =>\n  \"Grid\" + \"\U0001F4A1\" + \"(\" +ys[ys.length - 1]+\"W)\"\n"
+      fill: tozeroy
+      line:
+        color: rgb(84, 144, 194)
+    - entity: number.deye_inverter_battery_capacity
+      name: "$fn ({ ys, meta }) =>\n  \"Prog Capacity\"\n"
+      line:
+        color: rgb(30, 144, 255)
+        width: 2
+      fillcolor: rgba(30, 144, 255, 0.6)
+      show_value: true
+      unit_of_measurement: '%'
+      filters:
+      - fn: ({ vars }) => vars.computeAll()
+    layout:
+      showlegend: true
+      yaxis:
+        nticks: 20
+        range:
+        - 0
+        - 105
+        fixedrange: true
+      yaxis2:
+        range:
+        - 0
+        - 6600
+        fixedrange: true
+      xaxis:
+        nticks: 9
+        tickangle: 0
+    config:
+      scrollZoom: false
+  layout:
+    grid-template-columns: 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33%
+    grid-template-rows: auto 2fr auto auto auto auto auto
+    grid-template-areas: '"g1 g1 g2 g2 g3 g3 g4 g4 g5 g5 g6 g6"
+
+      "flow flow flow flow graph graph graph graph graph graph graph graph"
+
+      "total total total total daily daily daily daily daily daily daily daily"
+
+      "ge ge ge ge ge ge ge ge ge ge ge ge"
+
+      "sg sg sg sg sg sg sg sg stats stats stats stats"
+
+      "m m m m m m m m stats1 stats1 stats1 stats1"
+
+      "energy energy energy solar solar solar solar solar solar solar solar solar"
+
+      '
+    justify-items: stretch
+    mediaquery:
+      '(max-width: 800px)':
+        grid-template-columns: 100%
+        grid-template-areas: '"g1"
+
+          "g2"
+
+          "g3"
+
+          "g4"
+
+          "g5"
+
+          "g6"
+
+          "flow"
+
+          "graph"
+
+          "daily"
+
+          "total"
+
+          "stats1"
+
+          "sg"
+
+          "m"
+
+          "stats"
+
+          "energy"
+
+          "solar"
+
+          "ge"
+
+          '
+      '(max-width: 1300px)':
+        grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%
+        grid-template-rows: auto
+        grid-template-areas: '"g1 g2 g3 g4 g5 g6"
+
+          "flow flow flow flow flow flow"
+
+          "graph graph graph graph graph graph"
+
+          "stats1 daily daily daily daily daily"
+
+          "stats total total total total total"
+
+          "ge ge ge ge ge ge"
+
+          "sg sg sg sg sg sg"
+
+          "m m m m m m"
+
+          "energy solar solar solar solar solar"
+
+          '
+  visible:
+  - user: c052b6efe0294eed82a15c4ac32d1885
+  - user: ae87ef3c5e7d4b069aa6db5adf43505a
+  - user: 90b50eda696a4c7ab1f6355a04bad81a
+  - user: da42401e4fcb43dca7e000a26f6acb60
+- type: sections
+  title: Sterowanie Domem
+  icon: mdi:home-automation
+  path: wlaczniki
+  background:
+    opacity: 33
+    alignment: center
+    size: cover
+    repeat: repeat
+    attachment: fixed
+    image: /api/image/serve/414b3ac9a5ca32a157d4635bcd091c2b/original
+  sections:
+  - type: grid
+    columns: 2
+    cards:
+    - type: custom:mushroom-title-card
+      title: Główne Sterowanie
+      title_tap_action:
+        action: none
+    - type: custom:mushroom-entity-card
+      entity: switch.piec_gazowy
+      name: Woda użytkowa
+      icon: mdi:water-boiler
+      layout: vertical
+      tap_action:
+        action: toggle
+    - type: custom:mushroom-entity-card
+      entity: input_boolean.dom_pusty
+      name: Tryb Poza Domem
+      icon: mdi:home-export-outline
+      layout: vertical
+      tap_action:
+        action: toggle
+    - type: custom:mushroom-entity-card
+      entity: switch.ev_charger_lublin_switch
+      name: Ładowarka EV Lublin
+      icon: mdi:ev-station
+      layout: vertical
+      tap_action:
+        action: toggle
+    - type: custom:mushroom-climate-card
+      entity: climate.towel_warmer
+      name: Grzejnik łazienkowy
+      layout: vertical
+      hvac_modes:
+      - heat
+      - 'off'
+      show_temperature_control: true
+  - type: grid
+    columns: 2
+    cards:
+    - type: custom:mushroom-title-card
+      title: Energia
+      title_tap_action:
+        action: none
+    - type: custom:mushroom-template-card
+      primary: Produkcja Słoneczna
+      secondary: '{{ states(''sensor.energy_production_today_remaining_2'') }} kWh'
+      icon: mdi:solar-power
+      icon_color: amber
+    - type: custom:mushroom-template-card
+      entity: sensor.zamel_kotlownia_temperature
+      primary: Temperatura Baterii
+      secondary: '{{ states(''sensor.zamel_kotlownia_temperature'') }}°C'
+      icon: mdi:thermometer
+      icon_color: '{% set temp = states(''sensor.zamel_kotlownia_temperature'') | float(0) %} {% if temp > 28 %} red {% elif
+        temp > 26 %} orange {% elif temp > 24 %} yellow {% else %} blue {% endif %}'
+  - type: grid
+    columns: 2
+    cards:
+    - type: custom:mushroom-title-card
+      title: Kuchnia
+      title_tap_action:
+        action: none
+    - type: custom:mushroom-entity-card
+      entity: switch.ekspres_do_kawy_socket_1
+      name: Ekspres do kawy
+      icon: mdi:coffee-maker
+      layout: vertical
+    - type: custom:mushroom-entity-card
+      entity: switch.mlynek_socket_1
+      name: Młynek
+      icon: mdi:coffee-grinder
+      layout: vertical
+  - type: grid
+    columns: 2
+    cards:
+    - type: custom:mushroom-title-card
+      title: Pompa Ciepła - Krzywa Grzewcza
+      subtitle: Ustawienia i wizualizacja
+      title_tap_action:
+        action: none
+    - type: vertical-stack
+      cards:
+      - type: grid
+        columns: 2
+        cards:
+        - type: custom:mushroom-number-card
+          entity: number.panasonic_heat_pump_main_z1_heat_curve_outside_low_temp
+          name: Temp. zewn. (min)
+          icon: mdi:thermometer-minus
+          display_mode: buttons
+        - type: custom:mushroom-number-card
+          entity: number.panasonic_heat_pump_main_z1_heat_curve_target_low_temp
+          name: Temp. wody (dla min)
+          icon: mdi:coolant-temperature
+          display_mode: buttons
+        - type: custom:mushroom-number-card
+          entity: number.panasonic_heat_pump_main_z1_heat_curve_outside_high_temp
+          name: Temp. zewn. (max)
+          icon: mdi:thermometer-plus
+          display_mode: buttons
+        - type: custom:mushroom-number-card
+          entity: number.panasonic_heat_pump_main_z1_heat_curve_target_high_temp
+          name: Temp. wody (dla max)
+          icon: mdi:coolant-temperature
+          display_mode: buttons
+    - type: custom:plotly-graph
+      refresh_interval: 10
+      title: Wykres Krzywej Grzewczej
+      defaults:
+        entity:
+          show_value: true
+          line:
+            shape: spline
+      layout:
+        height: 300
+        xaxis:
+          type: number
+          autorange: true
+      entities:
+      - entity: ''
+        name: Zone 2
+        x:
+        - $ex hass.states['number.panasonic_heat_pump_main_z2_heat_curve_outside_low_temp'].state
+        - $ex hass.states['number.panasonic_heat_pump_main_z2_heat_curve_outside_high_temp'].state
+        y:
+        - $ex hass.states['number.panasonic_heat_pump_main_z2_heat_curve_target_high_temp'].state
+        - $ex hass.states['number.panasonic_heat_pump_main_z2_heat_curve_target_low_temp'].state
+      - entity: ''
+        name: Zone 1
+        x:
+        - $ex hass.states['number.panasonic_heat_pump_main_z1_heat_curve_outside_low_temp'].state
+        - $ex hass.states['number.panasonic_heat_pump_main_z1_heat_curve_outside_high_temp'].state
+        y:
+        - $ex hass.states['number.panasonic_heat_pump_main_z1_heat_curve_target_high_temp'].state
+        - $ex hass.states['number.panasonic_heat_pump_main_z1_heat_curve_target_low_temp'].state
+  - type: grid
+    cards:
+    - type: heading
+      heading: Nowa sekcja
+  cards: []
+- path: default_view
+  title: Home
+  cards:
+  - type: vertical-stack
+    cards:
+    - type: markdown
+      content: "## Jakość powietrza w Grodzisku Mazowieckim\n\n{% set pm1 = states('sensor.czujnik_powietrza_pm_1') %}\n{%\
+        \ set pm25 = states('sensor.czujnik_powietrza_pm_25') %}\n{% set pm10 = states('sensor.czujnik_powietrza_pm_10') %}\n\
+        {% set pm1_float = pm1|float(0) %}\n{% set pm25_float = pm25|float(0) %}\n{% set pm10_float = pm10|float(0) %}\n{%\
+        \ set ostrzezenie_pm1 = pm1 not in ['unknown','unavailable'] and pm1_float > 20 %}\n{% set ostrzezenie_pm25 = pm25\
+        \ not in ['unknown','unavailable'] and pm25_float > 25 %}\n{% set ostrzezenie_pm10 = pm10 not in ['unknown','unavailable']\
+        \ and pm10_float > 50 %}\n{% if ostrzezenie_pm1 or ostrzezenie_pm25 or ostrzezenie_pm10 %}\n\U0001F6D1 **OSTRZEŻENIE:\
+        \ Przekroczone normy pyłów!**\n{% endif %}\n\n- **PM1:** {{ pm1_float|round(1) }} µg/m³ {% if ostrzezenie_pm1 %} \U0001F6A8\
+        \ {% endif %}\n- **PM2.5:** {{ pm25_float|round(1) }} µg/m³ {% if ostrzezenie_pm25 %} \U0001F6A8 {% endif %}\n- **PM10:**\
+        \ {{ pm10_float|round(1) }} µg/m³ {% if ostrzezenie_pm10 %} \U0001F6A8 {% endif %}\n\n---\n{% if ostrzezenie_pm25\
+        \ or ostrzezenie_pm10 %}\nZaleca się unikanie wychodzenia i aktywności na zewnątrz.  \nSzczególnie ważne dla dzieci,\
+        \ seniorów i osób z problemami układu oddechowego.\n{% else %}\nJakość powietrza jest w normie krajowej.\n{% endif\
+        \ %}\n\n**Wilgotność:** {{ states('sensor.czujnik_powietrza_wilgotnosc')|float(0)|round(1) }} %\n**Temperatura:**\
+        \ {{ states('sensor.czujnik_powietrza_temperatura_aht')|float(0)|round(1) }} °C / {{ states('sensor.czujnik_powietrza_temperatura_bmp')|float(0)|round(1)\
+        \ }} °C\n"
+    - type: history-graph
+      title: Historia zanieczyszczeń (24h)
+      entities:
+      - entity: sensor.czujnik_powietrza_pm_1
+        name: PM1 µg/m³
+      - entity: sensor.czujnik_powietrza_pm_25
+        name: PM2.5 µg/m³
+      - entity: sensor.czujnik_powietrza_pm_10
+        name: PM10 µg/m³
+    - type: entities
+      title: Parametry czujnika powietrza
+      entities:
+      - entity: sensor.czujnik_powietrza_pm_1
+        name: Pył PM1
+        icon: mdi:chemical-weapon
+      - entity: sensor.czujnik_powietrza_pm_25
+        name: Pył PM2.5
+        icon: mdi:chemical-weapon
+      - entity: sensor.czujnik_powietrza_pm_10
+        name: Pył PM10
+        icon: mdi:chemical-weapon
+      - entity: sensor.czujnik_powietrza_wilgotnosc
+        name: Wilgotność
+      - entity: sensor.czujnik_powietrza_temperatura_aht
+        name: Temperatura (AHT)
+      - entity: sensor.czujnik_powietrza_temperatura_bmp
+        name: Temperatura (BMP)
+      - entity: sensor.czujnik_powietrza_cisnienie
+        name: Ciśnienie [hPa]
+      - entity: sensor.czujnik_powietrza_wifi_signal_percent
+        name: WiFi sygnał [%]
+      - entity: sensor.czujnik_powietrza_wifi_signal_db
+        name: WiFi sygnał [dBm]
+      - entity: sensor.czujnik_powietrza_ip_address
+        name: IP Adres
+  - type: entities
+    entities:
+    - sun.sun
+    title: Słońce
+  - show_current: true
+    show_forecast: true
+    type: weather-forecast
+    entity: weather.dom
+  - type: entities
+    entities:
+    - entity: sensor.disk_use_percent
+    - entity: sensor.memory_use
+    - entity: sensor.processor_use
+    title: Sensor
+  - type: history-graph
+    entities:
+    - entity: sensor.speedtest_download
+    - entity: sensor.speedtest_upload
+    hours_to_show: 24
+    refresh_interval: 0
+    title: Speedtest
+  - type: custom:gauge-card-pro
+    entity: sensor.procesor_srednie_uzycie
+    segments:
+    - from: 0
+      color: red
+    - from: 25
+      color: '#FFA500'
+    - from: 50
+      color: rgb(255, 255, 0)
+    - from: 100
+      color: var(--green-color)
+    needle: true
+    gradient: true
+    titles:
+      primary: '{{ state_attr(entity, ''friendly_name'') }}'
+    gradient_resolution: medium
+  - type: custom:scheduler-card
+    name: Harmonogram
+    domains: []
+    entities: []
+    groups: []
+  - type: sensor
+    entity: sensor.obliczona_konsumpcja_domu
+    graph: line
+  - type: custom:gauge-card-pro
+    segments:
+    - from: 0
+      color: red
+    - from: 25
+      color: '#FFA500'
+    - from: 50
+      color: rgb(255, 255, 0)
+    - from: 100
+      color: var(--green-color)
+    needle: true
+    gradient: true
+    titles:
+      primary: '{{ state_attr(entity, ''friendly_name'') }}'
+    gradient_resolution: auto
+    entity: sensor.deye_inverter_grid_power
+    hide_background: false
+  - type: entities
+    entities:
+    - entity: sensor.alpstuga_air_quality_monitor_air_quality
+      name: Air quality
+    - entity: sensor.alpstuga_air_quality_monitor_dwutlenek_wegla
+      name: Dwutlenek węgla
+    - entity: sensor.alpstuga_air_quality_monitor_pm2_5
+      name: PM2.5
+    - entity: sensor.alpstuga_air_quality_monitor_temperatura
+      name: Temperatura
+    - entity: sensor.alpstuga_air_quality_monitor_wilgotnosc
+      name: Wilgotność
+    title: ALPSTUGA air quality monitor
+- title: Przegląd
+  path: przeglad
+  icon: mdi:solar-power-variant
+  type: sections
+  max_columns: 3
+  sections:
+  - type: grid
+    column_span: 3
+    cards:
+    - type: custom:mushroom-chips-card
+      alignment: center
+      chips:
+      - type: template
+        icon: '{% set v = states(''sensor.deye_inverter_battery'')|int(0) %}{% if v>80 %}mdi:battery-high{% elif v>50 %}mdi:battery-medium{%
+          elif v>20 %}mdi:battery-low{% else %}mdi:battery-alert{% endif %}'
+        icon_color: '{% set v = states(''sensor.deye_inverter_battery'')|int(0) %}{% if v>80 %}green{% elif v>50 %}lime{%
+          elif v>20 %}orange{% else %}red{% endif %}'
+        content: '{{ states(''sensor.deye_inverter_battery'') }}%'
+        tap_action:
+          action: more-info
+          entity: sensor.deye_inverter_battery
+      - type: template
+        icon: mdi:solar-power
+        icon_color: '{% set v=states(''sensor.deye_inverter_pv_power'')|int(0) %}{% if v>3000 %}amber{% elif v>500 %}yellow{%
+          else %}grey{% endif %}'
+        content: PV {{ states('sensor.deye_inverter_pv_power') }} W
+        tap_action:
+          action: more-info
+          entity: sensor.deye_inverter_pv_power
+      - type: template
+        icon: '{% set p=states(''sensor.deye_inverter_battery_power'')|int(0) %}{% if p>50 %}mdi:battery-charging{% elif p<-50
+          %}mdi:battery-arrow-down{% else %}mdi:battery{% endif %}'
+        icon_color: '{% set p=states(''sensor.deye_inverter_battery_power'')|int(0) %}{% if p>50 %}green{% elif p<-50 %}orange{%
+          else %}grey{% endif %}'
+        content: Bat {{ states('sensor.deye_inverter_battery_power') }} W
+        tap_action:
+          action: more-info
+          entity: sensor.deye_inverter_battery_power
+      - type: template
+        icon: mdi:transmission-tower
+        icon_color: blue
+        content: L1:{{ states('sensor.deye_inverter_grid_l1_power') }} L2:{{ states('sensor.deye_inverter_grid_l2_power')
+          }} L3:{{ states('sensor.deye_inverter_grid_l3_power') }}W
+      - type: entity
+        entity: sensor.deye_inverter_ac_temperature
+        icon_color: red
+      - type: entity
+        entity: switch.deye_inverter_time_of_use
+        name: TOU
+        icon: mdi:clock-check
+        icon_color: blue
+        content_info: name
+        tap_action:
+          action: toggle
+      - type: entity
+        entity: switch.deye_inverter_battery_grid_charging
+        name: Grid↺
+        icon: mdi:battery-charging-wireless
+        icon_color: green
+        content_info: name
+        tap_action:
+          action: toggle
+  - type: grid
+    column_span: 3
+    cards:
+    - type: custom:power-flow-card-plus
+      entities:
+        battery:
+          entity: sensor.deye_inverter_battery_power
+          state_of_charge: sensor.deye_inverter_battery
+        grid:
+          entity: sensor.deye_inverter_grid_power
+          secondary_info: {}
+        solar:
+          entity: sensor.inwerter_dzienna_produkcja
+          secondary_info_entity: sensor.inwerter_moc_czynna
+          display_zero: true
+        home:
+          entity: sensor.deye_inverter_load_power
+      watt_threshold: 1000
+      clickable_entities: true
+  - type: grid
+    cards:
+    - type: heading
+      heading: ☀️ PV
+    - type: custom:mushroom-title-card
+      title: Deye
+      subtitle: PV1 · PV2 bezpośrednio
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-template-card
+        entity: sensor.deye_inverter_pv1_power
+        primary: '{{ states(entity) }} W'
+        secondary: PV1
+        icon: mdi:solar-panel
+        icon_color: amber
+        layout: vertical
+      - type: custom:mushroom-template-card
+        entity: sensor.deye_inverter_pv2_power
+        primary: '{{ states(entity) }} W'
+        secondary: PV2
+        icon: mdi:solar-panel
+        icon_color: yellow
+        layout: vertical
+      - type: custom:mushroom-template-card
+        entity: sensor.deye_inverter_pv_power
+        primary: '{{ states(entity) }} W'
+        secondary: Łącznie
+        icon: mdi:solar-power-variant
+        icon_color: '{% set v=states(entity)|int(0) %}{% if v>3000 %}amber{% elif v>500 %}yellow{% else %}grey{% endif %}'
+        layout: vertical
+    - type: custom:mini-graph-card
+      entities:
+      - entity: sensor.deye_inverter_pv_power
+        name: Deye PV
+      hours_to_show: 24
+      points_per_hour: 4
+      height: 65
+      line_width: 2
+      show:
+        name: false
+        icon: false
+        state: true
+        fill: fade
+        points: false
+        labels: false
+        legend: false
+      color_thresholds:
+      - value: 0
+        color: '#888'
+      - value: 500
+        color: '#f59e0b'
+      - value: 3000
+        color: '#eab308'
+      - value: 6000
+        color: '#ff6f00'
+    - type: custom:mushroom-title-card
+      title: Huawei NSS
+      subtitle: PV1 + PV3 → mikroinwerter
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-template-card
+        entity: sensor.inwerter_moc_czynna_pv_1
+        primary: '{{ states(entity) }} W'
+        secondary: PV1
+        icon: mdi:solar-panel
+        icon_color: amber
+        layout: vertical
+      - type: custom:mushroom-template-card
+        entity: sensor.inwerter_moc_czynna_pv_3
+        primary: '{{ states(entity) }} W'
+        secondary: PV3
+        icon: mdi:solar-panel
+        icon_color: yellow
+        layout: vertical
+      - type: custom:mushroom-template-card
+        entity: sensor.inwerter_moc_czynna
+        primary: '{{ states(entity) }} W'
+        secondary: Łącznie
+        icon: mdi:solar-power
+        icon_color: '{% set v=states(entity)|int(0) %}{% if v>3000 %}amber{% elif v>500 %}yellow{% else %}grey{% endif %}'
+        layout: vertical
+    - type: custom:mini-graph-card
+      entities:
+      - entity: sensor.inwerter_moc_czynna
+        name: Huawei PV
+      hours_to_show: 24
+      points_per_hour: 4
+      height: 65
+      line_width: 2
+      show:
+        name: false
+        icon: false
+        state: true
+        fill: fade
+        points: false
+        labels: false
+        legend: false
+      color_thresholds:
+      - value: 0
+        color: '#888'
+      - value: 500
+        color: '#f59e0b'
+      - value: 2000
+        color: '#eab308'
+      - value: 5000
+        color: '#ff6f00'
+    - type: custom:mushroom-chips-card
+      chips:
+      - type: template
+        icon: mdi:speedometer
+        icon_color: green
+        content: η {{ states('sensor.inwerter_sprawnosc') }}%
+      - type: template
+        icon: mdi:thermometer
+        icon_color: '{% set t=states(''sensor.inwerter_temperatura_wewnetrzna'')|int(0) %}{% if t>60 %}red{% elif t>45 %}orange{%
+          else %}blue{% endif %}'
+        content: '{{ states(''sensor.inwerter_temperatura_wewnetrzna'') }}°C'
+      - type: template
+        icon: mdi:weather-sunset-up
+        icon_color: amber
+        content: '{{ states(''sensor.inwerter_czas_startu'') }}'
+      - type: template
+        icon: mdi:weather-sunset-down
+        icon_color: deep-purple
+        content: '{{ states(''sensor.inwerter_czas_wylaczenia'') }}'
+    - type: custom:mushroom-chips-card
+      chips:
+      - type: template
+        icon: mdi:calendar-today
+        icon_color: green
+        content: 'Dziś: {{ states(''sensor.inwerter_dzienna_produkcja'') }} kWh'
+      - type: template
+        icon: mdi:calendar-month
+        icon_color: blue
+        content: 'Mies.: {{ states(''sensor.inwerter_miesieczny_uzysk'') }} kWh'
+  - type: grid
+    cards:
+    - type: heading
+      heading: 🔋 Bateria & BMS
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-template-card
+        entity: sensor.deye_inverter_battery
+        primary: '{{ states(entity) }}%'
+        secondary: Deye SOC
+        icon: '{% set v=states(entity)|int(0) %}{% if v>80 %}mdi:battery-high{% elif v>50 %}mdi:battery-medium{% elif v>20
+          %}mdi:battery-low{% else %}mdi:battery-alert{% endif %}'
+        icon_color: '{% set v=states(entity)|int(0) %}{% if v>80 %}green{% elif v>50 %}lime{% elif v>20 %}orange{% else %}red{%
+          endif %}'
+        layout: vertical
+      - type: custom:mushroom-template-card
+        entity: sensor.batt_soc
+        primary: '{{ states(entity) }}%'
+        secondary: BMS SOC
+        icon: '{% set v=states(entity)|int(0) %}{% if v>80 %}mdi:battery-high{% elif v>50 %}mdi:battery-medium{% elif v>20
+          %}mdi:battery-low{% else %}mdi:battery-alert{% endif %}'
+        icon_color: '{% set v=states(entity)|int(0) %}{% if v>80 %}green{% elif v>50 %}lime{% elif v>20 %}orange{% else %}red{%
+          endif %}'
+        layout: vertical
+      - type: custom:mushroom-template-card
+        entity: sensor.batt_soh
+        primary: '{{ states(entity) }}%'
+        secondary: SOH
+        icon: mdi:battery-heart-variant
+        icon_color: '{% set v=states(entity)|int(0) %}{% if v>90 %}green{% elif v>70 %}orange{% else %}red{% endif %}'
+        layout: vertical
+    - type: custom:apexcharts-card
+      graph_span: 24h
+      header:
+        show: true
+        title: SOC & Moc baterii 24h
+        show_states: true
+        colorize_states: true
+      apex_config:
+        chart:
+          height: 130
+        yaxis:
+        - min: 0
+          max: 100
+          decimalsInFloat: 0
+          title:
+            text: SOC %
+        - opposite: true
+          decimalsInFloat: 0
+          title:
+            text: W
+      series:
+      - entity: sensor.deye_inverter_battery
+        name: SOC
+        type: area
+        color: '#22c55e'
+        opacity: 0.2
+        yaxis_id: first
+      - entity: sensor.deye_inverter_battery_power
+        name: Moc bat.
+        type: line
+        color: '#f59e0b'
+        yaxis_id: second
+    - type: custom:mushroom-chips-card
+      chips:
+      - type: template
+        icon: mdi:flash
+        icon_color: yellow
+        content: '{{ states(''sensor.deye_inverter_battery_voltage'') }} V'
+      - type: template
+        icon: mdi:current-dc
+        icon_color: orange
+        content: '{{ states(''sensor.deye_inverter_battery_current'') }} A'
+      - type: template
+        icon: mdi:thermometer
+        icon_color: red
+        content: '{{ states(''sensor.deye_inverter_battery_temperature'') }}°C'
+    - type: custom:mushroom-title-card
+      title: BMS EV-BPM
+      subtitle: 96 cel · 12 modułów
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-template-card
+        entity: sensor.batt_power
+        primary: '{{ states(entity) }} W'
+        secondary: Moc
+        icon: mdi:lightning-bolt
+        icon_color: amber
+        layout: vertical
+      - type: custom:mushroom-template-card
+        entity: sensor.batt_current
+        primary: '{{ states(entity) }} A'
+        secondary: Prąd
+        icon: mdi:current-dc
+        icon_color: orange
+        layout: vertical
+      - type: custom:mushroom-template-card
+        entity: sensor.batt_cycle
+        primary: '{{ states(entity) }}'
+        secondary: Cykle
+        icon: mdi:recycle
+        icon_color: '{% set v=states(entity)|int(0) %}{% if v<1000 %}green{% elif v<3000 %}orange{% else %}red{% endif %}'
+        layout: vertical
+    - type: custom:mushroom-title-card
+      title: Ogniwa
+      subtitle: Balans napięć
+    - type: custom:mushroom-chips-card
+      chips:
+      - type: template
+        icon: mdi:arrow-down-bold
+        icon_color: red
+        content: Min {{ states('sensor.cell_min_v') }}V
+      - type: template
+        icon: mdi:approximately-equal
+        icon_color: blue
+        content: Avg {{ states('sensor.cell_avg_v') }}V
+      - type: template
+        icon: mdi:arrow-up-bold
+        icon_color: green
+        content: Max {{ states('sensor.cell_max_v') }}V
+      - type: template
+        icon: mdi:delta
+        icon_color: '{% set d=states(''sensor.cell_delta_v'')|float(0) %}{% if d<0.02 %}green{% elif d<0.05 %}orange{% else
+          %}red{% endif %}'
+        content: Δ {{ states('sensor.cell_delta_v') }}V
+    - type: custom:mini-graph-card
+      entities:
+      - entity: sensor.cell_delta_v
+        name: Delta V
+      hours_to_show: 48
+      points_per_hour: 2
+      height: 60
+      line_width: 2
+      show:
+        name: false
+        icon: false
+        state: true
+        fill: fade
+        points: false
+        labels: false
+        legend: false
+      color_thresholds:
+      - value: 0
+        color: '#22c55e'
+      - value: 0.03
+        color: '#f59e0b'
+      - value: 0.05
+        color: '#ef4444'
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-template-card
+        entity: sensor.temp_min_c
+        primary: '{{ states(entity) }}°C'
+        secondary: Temp Min
+        icon: mdi:thermometer-low
+        icon_color: blue
+        layout: vertical
+      - type: custom:mushroom-template-card
+        entity: sensor.temp_avg_c
+        primary: '{{ states(entity) }}°C'
+        secondary: Temp Avg
+        icon: mdi:thermometer
+        icon_color: green
+        layout: vertical
+      - type: custom:mushroom-template-card
+        entity: sensor.temp_max_c
+        primary: '{{ states(entity) }}°C'
+        secondary: Temp Max
+        icon: mdi:thermometer-high
+        icon_color: red
+        layout: vertical
+    - type: custom:mushroom-chips-card
+      chips:
+      - type: entity
+        entity: sensor.batt_state
+        icon_color: green
+      - type: template
+        icon: mdi:scale-balance
+        icon_color: '{% if states(''sensor.batt_is_balancing'')|int(0)>0 %}amber{% else %}grey{% endif %}'
+        content: '{% if states(''sensor.batt_is_balancing'')|int(0)>0 %}BAL ON{% else %}BAL OFF{% endif %}'
+      - type: entity
+        entity: switch.batt_enabled
+        icon_color: green
+      - type: entity
+        entity: sensor.errors
+        icon_color: red
+  - type: grid
+    cards:
+    - type: heading
+      heading: ⚡ Sieć & Energia
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-template-card
+        entity: sensor.deye_inverter_grid_l1_power
+        primary: '{{ states(entity) }} W'
+        secondary: L1
+        icon: mdi:numeric-1-box
+        icon_color: blue
+        layout: vertical
+      - type: custom:mushroom-template-card
+        entity: sensor.deye_inverter_grid_l2_power
+        primary: '{{ states(entity) }} W'
+        secondary: L2
+        icon: mdi:numeric-2-box
+        icon_color: indigo
+        layout: vertical
+      - type: custom:mushroom-template-card
+        entity: sensor.deye_inverter_grid_l3_power
+        primary: '{{ states(entity) }} W'
+        secondary: L3
+        icon: mdi:numeric-3-box
+        icon_color: purple
+        layout: vertical
+    - type: custom:mushroom-title-card
+      title: Energia — dzienna
+    - type: entities
+      show_header_toggle: false
+      entities:
+      - entity: sensor.deye_inverter_daily_energy_bought
+        name: Pobrano z sieci
+        icon: mdi:transmission-tower-import
+      - entity: sensor.deye_inverter_daily_energy_sold
+        name: Oddano do sieci
+        icon: mdi:transmission-tower-export
+      - entity: sensor.deye_inverter_daily_load_consumption
+        name: Zużycie domu
+        icon: mdi:home-lightning-bolt
+      - entity: sensor.inwerter_dzienna_produkcja
+        name: PV Huawei
+        icon: mdi:solar-panel
+      - entity: sensor.deye_inverter_daily_battery_charge
+        name: Ładowanie bat.
+        icon: mdi:battery-charging
+      - entity: sensor.deye_inverter_daily_battery_discharge
+        name: Rozładowanie bat.
+        icon: mdi:battery-arrow-down
+    - type: custom:mushroom-title-card
+      title: Energia — miesięczna
+    - type: entities
+      show_header_toggle: false
+      entities:
+      - entity: sensor.deye_monthly_production
+        name: Produkcja
+        icon: mdi:solar-power-variant
+      - entity: sensor.deye_monthly_energy_bought
+        name: Pobrano
+        icon: mdi:transmission-tower-import
+      - entity: sensor.deye_monthly_energy_sold
+        name: Oddano
+        icon: mdi:transmission-tower-export
+      - entity: sensor.deye_monthly_consumption
+        name: Zużycie
+        icon: mdi:home-lightning-bolt
+      - entity: sensor.deye_monthly_battery_charge
+        name: Ładowanie bat.
+        icon: mdi:battery-charging
+      - entity: sensor.deye_monthly_battery_discharge
+        name: Rozładowanie bat.
+        icon: mdi:battery-arrow-down
+    - type: custom:mushroom-title-card
+      title: Energia — roczna
+    - type: entities
+      show_header_toggle: false
+      entities:
+      - entity: sensor.deye_yearly_production
+        name: Produkcja
+        icon: mdi:solar-power-variant
+      - entity: sensor.deye_yearly_energy_bought
+        name: Pobrano
+        icon: mdi:transmission-tower-import
+      - entity: sensor.deye_yearly_energy_sold
+        name: Oddano
+        icon: mdi:transmission-tower-export
+      - entity: sensor.deye_yearly_consumption
+        name: Zużycie
+        icon: mdi:home-lightning-bolt
+      - entity: sensor.deye_yearly_battery_charge
+        name: Ładowanie bat.
+        icon: mdi:battery-charging
+      - entity: sensor.deye_yearly_battery_discharge
+        name: Rozładowanie bat.
+        icon: mdi:battery-arrow-down
+- title: TOU / Ładowanie
+  path: grid-charge
+  icon: mdi:battery-charging-wireless
+  type: sections
+  max_columns: 2
+  sections:
+  - type: grid
+    column_span: 2
+    cards:
+    - type: custom:mushroom-chips-card
+      alignment: center
+      chips:
+      - type: template
+        icon: '{% set v = states(''sensor.deye_inverter_battery'')|int(0) %}{% if v>80 %}mdi:battery-high{% elif v>50 %}mdi:battery-medium{%
+          elif v>20 %}mdi:battery-low{% else %}mdi:battery-alert{% endif %}'
+        icon_color: '{% set v = states(''sensor.deye_inverter_battery'')|int(0) %}{% if v>80 %}green{% elif v>50 %}lime{%
+          elif v>20 %}orange{% else %}red{% endif %}'
+        content: '{{ states(''sensor.deye_inverter_battery'') }}%'
+        tap_action:
+          action: more-info
+          entity: sensor.deye_inverter_battery
+      - type: template
+        icon: mdi:battery-heart-variant
+        icon_color: '{% set v=states(''sensor.batt_soc'')|int(0) %}{% if v>80 %}green{% elif v>20 %}orange{% else %}red{%
+          endif %}'
+        content: BMS {{ states('sensor.batt_soc') }}%
+      - type: template
+        icon: mdi:lightning-bolt
+        icon_color: amber
+        content: '{{ states(''sensor.deye_inverter_battery_power'') }} W'
+      - type: entity
+        entity: switch.deye_inverter_battery_grid_charging
+        name: Grid↺
+        icon: mdi:battery-charging-wireless
+        icon_color: green
+        content_info: name
+        tap_action:
+          action: toggle
+      - type: entity
+        entity: switch.deye_inverter_time_of_use
+        name: TOU
+        icon: mdi:clock-check
+        icon_color: blue
+        content_info: name
+        tap_action:
+          action: toggle
+    - type: custom:mini-graph-card
+      entities:
+      - entity: sensor.deye_inverter_battery
+        name: SOC Baterii
+      hours_to_show: 24
+      points_per_hour: 4
+      height: 80
+      line_width: 2
+      show:
+        name: false
+        icon: false
+        state: true
+        fill: fade
+        points: false
+        labels: true
+        legend: false
+      color_thresholds:
+      - value: 20
+        color: '#f44336'
+      - value: 50
+        color: '#ff9800'
+      - value: 80
+        color: '#4caf50'
+  - type: grid
+    column_span: 2
+    cards:
+    - type: custom:mushroom-title-card
+      title: Parametry ładowania
+      subtitle: Prądy i limity
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_maximum_battery_grid_charge_current
+        name: Max z grid (A)
+        icon_color: green
+        display_mode: buttons
+        layout: vertical
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_maximum_battery_charge_current
+        name: Max ład. (A)
+        icon_color: blue
+        display_mode: buttons
+        layout: vertical
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_battery_shutdown_soc
+        name: Shutdown SOC
+        icon_color: red
+        display_mode: buttons
+        layout: vertical
+    - type: markdown
+      content: "```\n00    01         06      09      13   15          22    24\n├─────┼──────────┼───────┼───────┼────┼───────────┼─────┤\n\
+        \      │  Okno 1  │Okno 2 │Okno 3 │ O4 │  Okno 5   │Ok 6 │\n      │ 01→06    │06→09  │09→13  │→15 │  15→22    │→01\
+        \  │\n```\n"
+  - type: grid
+    cards:
+    - type: custom:stack-in-card
+      mode: vertical
+      cards:
+      - type: custom:mushroom-template-card
+        entity: switch.deye_inverter_time_of_use_1_grid_charge
+        primary: Okno 1 — 01:00 → 06:00
+        secondary: '{%- set gc = is_state(''switch.deye_inverter_time_of_use_1_grid_charge'',''on'') -%}{%- set sl = is_state(''switch.deye_inverter_time_of_use_1_sell'',''on'')
+          -%}{% if gc %}⚡ Grid{% else %}—{% endif %} {% if sl %}💰 Sell{% else %}{% endif %} · SOC: {{ states(''number.deye_inverter_time_of_use_1_soc'')
+          }}%'
+        icon: mdi:numeric-1-box
+        icon_color: '{%- if is_state(''switch.deye_inverter_time_of_use_1_grid_charge'',''on'') or is_state(''switch.deye_inverter_time_of_use_1_sell'',''on'')
+          -%}green{%- else -%}grey{%- endif -%}'
+        layout: horizontal
+        tap_action:
+          action: none
+      - type: custom:mushroom-chips-card
+        alignment: center
+        chips:
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_1_grid_charge
+          name: Grid
+          icon: mdi:transmission-tower
+          icon_color: green
+          content_info: name
+          tap_action:
+            action: toggle
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_1_sell
+          name: Sell
+          icon: mdi:cash
+          icon_color: orange
+          content_info: name
+          tap_action:
+            action: toggle
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_1_gen
+          name: Gen
+          icon: mdi:engine
+          icon_color: purple
+          content_info: name
+          tap_action:
+            action: toggle
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_1_soc
+        name: SOC cel (%)
+        icon_color: cyan
+        layout: horizontal
+        display_mode: slider
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_1_out_power
+        name: Moc wyj. (W)
+        icon_color: amber
+        layout: horizontal
+        display_mode: slider
+  - type: grid
+    cards:
+    - type: custom:stack-in-card
+      mode: vertical
+      cards:
+      - type: custom:mushroom-template-card
+        entity: switch.deye_inverter_time_of_use_2_grid_charge
+        primary: Okno 2 — 06:00 → 09:00
+        secondary: '{%- set gc = is_state(''switch.deye_inverter_time_of_use_2_grid_charge'',''on'') -%}{%- set sl = is_state(''switch.deye_inverter_time_of_use_2_sell'',''on'')
+          -%}{% if gc %}⚡ Grid{% else %}—{% endif %} {% if sl %}💰 Sell{% else %}{% endif %} · SOC: {{ states(''number.deye_inverter_time_of_use_2_soc'')
+          }}%'
+        icon: mdi:numeric-2-box
+        icon_color: '{%- if is_state(''switch.deye_inverter_time_of_use_2_grid_charge'',''on'') or is_state(''switch.deye_inverter_time_of_use_2_sell'',''on'')
+          -%}green{%- else -%}grey{%- endif -%}'
+        layout: horizontal
+        tap_action:
+          action: none
+      - type: custom:mushroom-chips-card
+        alignment: center
+        chips:
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_2_grid_charge
+          name: Grid
+          icon: mdi:transmission-tower
+          icon_color: green
+          content_info: name
+          tap_action:
+            action: toggle
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_2_sell
+          name: Sell
+          icon: mdi:cash
+          icon_color: orange
+          content_info: name
+          tap_action:
+            action: toggle
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_2_gen
+          name: Gen
+          icon: mdi:engine
+          icon_color: purple
+          content_info: name
+          tap_action:
+            action: toggle
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_2_soc
+        name: SOC cel (%)
+        icon_color: cyan
+        layout: horizontal
+        display_mode: slider
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_2_out_power
+        name: Moc wyj. (W)
+        icon_color: amber
+        layout: horizontal
+        display_mode: slider
+  - type: grid
+    cards:
+    - type: custom:stack-in-card
+      mode: vertical
+      cards:
+      - type: custom:mushroom-template-card
+        entity: switch.deye_inverter_time_of_use_3_grid_charge
+        primary: Okno 3 — 09:00 → 13:00
+        secondary: '{%- set gc = is_state(''switch.deye_inverter_time_of_use_3_grid_charge'',''on'') -%}{%- set sl = is_state(''switch.deye_inverter_time_of_use_3_sell'',''on'')
+          -%}{% if gc %}⚡ Grid{% else %}—{% endif %} {% if sl %}💰 Sell{% else %}{% endif %} · SOC: {{ states(''number.deye_inverter_time_of_use_3_soc'')
+          }}%'
+        icon: mdi:numeric-3-box
+        icon_color: '{%- if is_state(''switch.deye_inverter_time_of_use_3_grid_charge'',''on'') or is_state(''switch.deye_inverter_time_of_use_3_sell'',''on'')
+          -%}green{%- else -%}grey{%- endif -%}'
+        layout: horizontal
+        tap_action:
+          action: none
+      - type: custom:mushroom-chips-card
+        alignment: center
+        chips:
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_3_grid_charge
+          name: Grid
+          icon: mdi:transmission-tower
+          icon_color: green
+          content_info: name
+          tap_action:
+            action: toggle
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_3_sell
+          name: Sell
+          icon: mdi:cash
+          icon_color: orange
+          content_info: name
+          tap_action:
+            action: toggle
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_3_gen
+          name: Gen
+          icon: mdi:engine
+          icon_color: purple
+          content_info: name
+          tap_action:
+            action: toggle
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_3_soc
+        name: SOC cel (%)
+        icon_color: cyan
+        layout: horizontal
+        display_mode: slider
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_3_out_power
+        name: Moc wyj. (W)
+        icon_color: amber
+        layout: horizontal
+        display_mode: slider
+  - type: grid
+    cards:
+    - type: custom:stack-in-card
+      mode: vertical
+      cards:
+      - type: custom:mushroom-template-card
+        entity: switch.deye_inverter_time_of_use_4_grid_charge
+        primary: Okno 4 — 13:00 → 15:00
+        secondary: '{%- set gc = is_state(''switch.deye_inverter_time_of_use_4_grid_charge'',''on'') -%}{%- set sl = is_state(''switch.deye_inverter_time_of_use_4_sell'',''on'')
+          -%}{% if gc %}⚡ Grid{% else %}—{% endif %} {% if sl %}💰 Sell{% else %}{% endif %} · SOC: {{ states(''number.deye_inverter_time_of_use_4_soc'')
+          }}%'
+        icon: mdi:numeric-4-box
+        icon_color: '{%- if is_state(''switch.deye_inverter_time_of_use_4_grid_charge'',''on'') or is_state(''switch.deye_inverter_time_of_use_4_sell'',''on'')
+          -%}green{%- else -%}grey{%- endif -%}'
+        layout: horizontal
+        tap_action:
+          action: none
+      - type: custom:mushroom-chips-card
+        alignment: center
+        chips:
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_4_grid_charge
+          name: Grid
+          icon: mdi:transmission-tower
+          icon_color: green
+          content_info: name
+          tap_action:
+            action: toggle
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_4_sell
+          name: Sell
+          icon: mdi:cash
+          icon_color: orange
+          content_info: name
+          tap_action:
+            action: toggle
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_4_gen
+          name: Gen
+          icon: mdi:engine
+          icon_color: purple
+          content_info: name
+          tap_action:
+            action: toggle
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_4_soc
+        name: SOC cel (%)
+        icon_color: cyan
+        layout: horizontal
+        display_mode: slider
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_4_out_power
+        name: Moc wyj. (W)
+        icon_color: amber
+        layout: horizontal
+        display_mode: slider
+  - type: grid
+    cards:
+    - type: custom:stack-in-card
+      mode: vertical
+      cards:
+      - type: custom:mushroom-template-card
+        entity: switch.deye_inverter_time_of_use_5_grid_charge
+        primary: Okno 5 — 15:00 → 22:00
+        secondary: '{%- set gc = is_state(''switch.deye_inverter_time_of_use_5_grid_charge'',''on'') -%}{%- set sl = is_state(''switch.deye_inverter_time_of_use_5_sell'',''on'')
+          -%}{% if gc %}⚡ Grid{% else %}—{% endif %} {% if sl %}💰 Sell{% else %}{% endif %} · SOC: {{ states(''number.deye_inverter_time_of_use_5_soc'')
+          }}%'
+        icon: mdi:numeric-5-box
+        icon_color: '{%- if is_state(''switch.deye_inverter_time_of_use_5_grid_charge'',''on'') or is_state(''switch.deye_inverter_time_of_use_5_sell'',''on'')
+          -%}green{%- else -%}grey{%- endif -%}'
+        layout: horizontal
+        tap_action:
+          action: none
+      - type: custom:mushroom-chips-card
+        alignment: center
+        chips:
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_5_grid_charge
+          name: Grid
+          icon: mdi:transmission-tower
+          icon_color: green
+          content_info: name
+          tap_action:
+            action: toggle
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_5_sell
+          name: Sell
+          icon: mdi:cash
+          icon_color: orange
+          content_info: name
+          tap_action:
+            action: toggle
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_5_gen
+          name: Gen
+          icon: mdi:engine
+          icon_color: purple
+          content_info: name
+          tap_action:
+            action: toggle
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_5_soc
+        name: SOC cel (%)
+        icon_color: cyan
+        layout: horizontal
+        display_mode: slider
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_5_out_power
+        name: Moc wyj. (W)
+        icon_color: amber
+        layout: horizontal
+        display_mode: slider
+  - type: grid
+    cards:
+    - type: custom:stack-in-card
+      mode: vertical
+      cards:
+      - type: custom:mushroom-template-card
+        entity: switch.deye_inverter_time_of_use_6_grid_charge
+        primary: Okno 6 — 22:00 → 01:00
+        secondary: '{%- set gc = is_state(''switch.deye_inverter_time_of_use_6_grid_charge'',''on'') -%}{%- set sl = is_state(''switch.deye_inverter_time_of_use_6_sell'',''on'')
+          -%}{% if gc %}⚡ Grid{% else %}—{% endif %} {% if sl %}💰 Sell{% else %}{% endif %} · SOC: {{ states(''number.deye_inverter_time_of_use_6_soc'')
+          }}%'
+        icon: mdi:numeric-6-box
+        icon_color: '{%- if is_state(''switch.deye_inverter_time_of_use_6_grid_charge'',''on'') or is_state(''switch.deye_inverter_time_of_use_6_sell'',''on'')
+          -%}green{%- else -%}grey{%- endif -%}'
+        layout: horizontal
+        tap_action:
+          action: none
+      - type: custom:mushroom-chips-card
+        alignment: center
+        chips:
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_6_grid_charge
+          name: Grid
+          icon: mdi:transmission-tower
+          icon_color: green
+          content_info: name
+          tap_action:
+            action: toggle
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_6_sell
+          name: Sell
+          icon: mdi:cash
+          icon_color: orange
+          content_info: name
+          tap_action:
+            action: toggle
+        - type: entity
+          entity: switch.deye_inverter_time_of_use_6_gen
+          name: Gen
+          icon: mdi:engine
+          icon_color: purple
+          content_info: name
+          tap_action:
+            action: toggle
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_6_soc
+        name: SOC cel (%)
+        icon_color: cyan
+        layout: horizontal
+        display_mode: slider
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_6_out_power
+        name: Moc wyj. (W)
+        icon_color: amber
+        layout: horizontal
+        display_mode: slider
+  - type: grid
+    column_span: 2
+    cards:
+    - type: custom:mushroom-title-card
+      title: Aktywne dni TOU
+    - type: custom:mushroom-chips-card
+      alignment: center
+      chips:
+      - type: entity
+        entity: switch.deye_inverter_time_of_use_monday
+        name: Pn
+        content_info: name
+        icon_color: blue
+        tap_action:
+          action: toggle
+      - type: entity
+        entity: switch.deye_inverter_time_of_use_tuesday
+        name: Wt
+        content_info: name
+        icon_color: blue
+        tap_action:
+          action: toggle
+      - type: entity
+        entity: switch.deye_inverter_time_of_use_wednesday
+        name: Śr
+        content_info: name
+        icon_color: blue
+        tap_action:
+          action: toggle
+      - type: entity
+        entity: switch.deye_inverter_time_of_use_thursday
+        name: Cz
+        content_info: name
+        icon_color: blue
+        tap_action:
+          action: toggle
+      - type: entity
+        entity: switch.deye_inverter_time_of_use_friday
+        name: Pt
+        content_info: name
+        icon_color: blue
+        tap_action:
+          action: toggle
+      - type: entity
+        entity: switch.deye_inverter_time_of_use_saturday
+        name: Sb
+        content_info: name
+        icon_color: teal
+        tap_action:
+          action: toggle
+      - type: entity
+        entity: switch.deye_inverter_time_of_use_sunday
+        name: Nd
+        content_info: name
+        icon_color: teal
+        tap_action:
+          action: toggle
+    - type: custom:mushroom-title-card
+      title: Godziny startu okien
+    - type: custom:mushroom-chips-card
+      alignment: center
+      chips:
+      - type: template
+        icon: mdi:numeric-1-circle
+        icon_color: blue
+        content: '{{ states(''time.deye_inverter_time_of_use_1_start'') }}'
+        tap_action:
+          action: more-info
+          entity: time.deye_inverter_time_of_use_1_start
+      - type: template
+        icon: mdi:numeric-2-circle
+        icon_color: blue
+        content: '{{ states(''time.deye_inverter_time_of_use_2_start'') }}'
+        tap_action:
+          action: more-info
+          entity: time.deye_inverter_time_of_use_2_start
+      - type: template
+        icon: mdi:numeric-3-circle
+        icon_color: blue
+        content: '{{ states(''time.deye_inverter_time_of_use_3_start'') }}'
+        tap_action:
+          action: more-info
+          entity: time.deye_inverter_time_of_use_3_start
+      - type: template
+        icon: mdi:numeric-4-circle
+        icon_color: blue
+        content: '{{ states(''time.deye_inverter_time_of_use_4_start'') }}'
+        tap_action:
+          action: more-info
+          entity: time.deye_inverter_time_of_use_4_start
+      - type: template
+        icon: mdi:numeric-5-circle
+        icon_color: blue
+        content: '{{ states(''time.deye_inverter_time_of_use_5_start'') }}'
+        tap_action:
+          action: more-info
+          entity: time.deye_inverter_time_of_use_5_start
+      - type: template
+        icon: mdi:numeric-6-circle
+        icon_color: blue
+        content: '{{ states(''time.deye_inverter_time_of_use_6_start'') }}'
+        tap_action:
+          action: more-info
+          entity: time.deye_inverter_time_of_use_6_start
+    - type: custom:mushroom-title-card
+      title: Napięcia progowe okien
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_1_voltage
+        name: Ok.1
+        icon_color: deep-purple
+        display_mode: buttons
+        layout: vertical
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_2_voltage
+        name: Ok.2
+        icon_color: deep-purple
+        display_mode: buttons
+        layout: vertical
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_3_voltage
+        name: Ok.3
+        icon_color: deep-purple
+        display_mode: buttons
+        layout: vertical
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_4_voltage
+        name: Ok.4
+        icon_color: deep-purple
+        display_mode: buttons
+        layout: vertical
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_5_voltage
+        name: Ok.5
+        icon_color: deep-purple
+        display_mode: buttons
+        layout: vertical
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_6_voltage
+        name: Ok.6
+        icon_color: deep-purple
+        display_mode: buttons
+        layout: vertical
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_time_of_use_all_voltage
+        name: All
+        icon_color: cyan
+        display_mode: buttons
+        layout: vertical
+- title: Ustawienia
+  path: ustawienia
+  icon: mdi:cog
+  type: sections
+  max_columns: 2
+  sections:
+  - type: grid
+    column_span: 2
+    cards:
+    - type: custom:mushroom-title-card
+      title: Tryb pracy
+      subtitle: Główne przełączniki
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-entity-card
+        entity: switch.deye_inverter_power_switch
+        name: Zasilanie
+        icon_color: red
+        tap_action:
+          action: toggle
+      - type: custom:mushroom-entity-card
+        entity: switch.deye_inverter_solar_sell
+        name: Sprzedaż
+        icon_color: green
+        tap_action:
+          action: toggle
+      - type: custom:mushroom-entity-card
+        entity: select.deye_inverter_energy_management_priority
+        name: Prior. obciąż.
+        icon_color: orange
+        tap_action:
+          action: toggle
+      - type: custom:mushroom-entity-card
+        entity: switch.deye_inverter_force_off_grid
+        name: Wymuś Off-grid
+        icon_color: deep-orange
+        tap_action:
+          action: toggle
+  - type: grid
+    cards:
+    - type: heading
+      heading: 🔋 Bateria
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-entity-card
+        entity: switch.deye_inverter_battery_grid_charging
+        name: Ład. z sieci
+        icon_color: green
+        tap_action:
+          action: toggle
+      - type: custom:mushroom-entity-card
+        entity: switch.deye_inverter_battery_generator_charging
+        name: Ład. z gen.
+        icon_color: purple
+        tap_action:
+          action: toggle
+      - type: custom:mushroom-entity-card
+        entity: switch.deye_inverter_battery_wake_up
+        name: Wake Up
+        icon_color: amber
+        tap_action:
+          action: toggle
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_maximum_battery_charge_current
+        name: Max ład. (A)
+        icon_color: blue
+        display_mode: buttons
+        layout: vertical
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_maximum_battery_discharge_current
+        name: Max rozład. (A)
+        icon_color: orange
+        display_mode: buttons
+        layout: vertical
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_maximum_battery_grid_charge_current
+        name: Max z grid (A)
+        icon_color: green
+        display_mode: buttons
+        layout: vertical
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_battery_shutdown_soc
+        name: Shutdown SOC
+        icon_color: red
+        display_mode: buttons
+        layout: vertical
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_battery_shutdown_voltage
+        name: Shutdown V
+        icon_color: red
+        display_mode: buttons
+        layout: vertical
+  - type: grid
+    cards:
+    - type: heading
+      heading: ⚡ Grid & Generator
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-entity-card
+        entity: switch.deye_inverter_grid_peak_shaving_enable
+        name: Peak Shaving
+        icon_color: blue
+        tap_action:
+          action: toggle
+      - type: custom:mushroom-entity-card
+        entity: switch.deye_inverter_asymmetric_phase_feeding
+        name: Asymetryczny
+        icon_color: blue
+        tap_action:
+          action: toggle
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_grid_peak_shaving_power
+        name: Peak Power (W)
+        icon_color: blue
+        display_mode: buttons
+        layout: vertical
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_max_sell_power
+        name: Max Sell (W)
+        icon_color: green
+        display_mode: buttons
+        layout: vertical
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_max_solar_power
+        name: Max Solar (W)
+        icon_color: amber
+        display_mode: buttons
+        layout: vertical
+    - type: custom:mushroom-title-card
+      title: Generator
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-entity-card
+        entity: switch.deye_inverter_generator
+        name: Generator
+        icon_color: purple
+        tap_action:
+          action: toggle
+      - type: custom:mushroom-entity-card
+        entity: switch.deye_inverter_generator_grid_side
+        name: Strona sieci
+        icon_color: purple
+        tap_action:
+          action: toggle
+      - type: custom:mushroom-entity-card
+        entity: switch.deye_inverter_generator_on_grid_always_on
+        name: Always On
+        icon_color: purple
+        tap_action:
+          action: toggle
+  - type: grid
+    cards:
+    - type: heading
+      heading: 🔌 SmartLoad & PV
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_smartload_on_soc
+        name: ON SOC
+        icon_color: green
+        display_mode: buttons
+        layout: vertical
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_smartload_off_soc
+        name: OFF SOC
+        icon_color: red
+        display_mode: buttons
+        layout: vertical
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_smartload_on_voltage
+        name: ON V
+        icon_color: green
+        display_mode: buttons
+        layout: vertical
+      - type: custom:mushroom-number-card
+        entity: number.deye_inverter_smartload_off_voltage
+        name: OFF V
+        icon_color: red
+        display_mode: buttons
+        layout: vertical
+    - type: custom:mushroom-title-card
+      title: PV / MPPT
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-entity-card
+        entity: switch.deye_inverter_mppt_multi_point_scanning
+        name: MPPT Multi
+        icon_color: amber
+        tap_action:
+          action: toggle
+      - type: custom:mushroom-entity-card
+        entity: switch.deye_inverter_microinverter_export_cut_off
+        name: Export Cut-off
+        icon_color: amber
+        tap_action:
+          action: toggle
+  - type: grid
+    cards:
+    - type: heading
+      heading: 🌞 Huawei Inverter
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-entity-card
+        entity: switch.inwerter_wlacz_wylacz_inwerter
+        name: Włącz/Wyłącz
+        icon_color: green
+        tap_action:
+          action: toggle
+      - type: custom:mushroom-number-card
+        entity: number.inwerter_power_derating
+        name: Derating (W)
+        icon_color: orange
+        display_mode: buttons
+    - type: entities
+      show_header_toggle: false
+      entities:
+      - entity: sensor.inwerter_stan_inwertera
+        name: Stan
+      - entity: sensor.inwerter_status_urzadzenia
+        name: Status urządzenia
+      - entity: sensor.inwerter_alarmy
+        name: Alarmy
+  - type: grid
+    column_span: 2
+    cards:
+    - type: custom:mushroom-title-card
+      title: BMS EV-BPM
+      subtitle: Ustawienia MQTT
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-entity-card
+        entity: switch.batt_enabled
+        name: Bateria
+        icon_color: green
+        tap_action:
+          action: toggle
+      - type: custom:mushroom-number-card
+        entity: number.batt_id
+        name: Battery ID
+        icon_color: blue
+        display_mode: buttons
+      - type: custom:mushroom-number-card
+        entity: number.max_charge_current_a
+        name: Max ład. (A)
+        icon_color: green
+        display_mode: buttons
+      - type: custom:mushroom-number-card
+        entity: number.max_discharge_current_a
+        name: Max rozład. (A)
+        icon_color: orange
+        display_mode: buttons
+    - type: entities
+      show_header_toggle: false
+      entities:
+      - entity: sensor.deye_inverter_device_main_firmware_version
+        name: Firmware
+      - entity: sensor.deye_inverter_device_arc_board_firmware_version
+        name: Hardware
+      - entity: sensor.serial_number
+        name: S/N
+      - entity: sensor.cells_number
+        name: Liczba cel
+      - entity: sensor.url
+        name: IP BMS
+    - type: custom:mushroom-title-card
+      title: Alarmy Deye
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-entity-card
+        entity: binary_sensor.deye_inverter_battery_alarm
+        name: Bat Alarm
+        icon_color: red
+      - type: custom:mushroom-entity-card
+        entity: binary_sensor.deye_inverter_battery_fault
+        name: Bat Fault
+        icon_color: red
+      - type: custom:mushroom-entity-card
+        entity: binary_sensor.deye_inverter_communications_board_time_error
+        name: Time Error
+        icon_color: orange
+    - type: custom:mushroom-title-card
+      title: Info
+    - type: horizontal-stack
+      cards:
+      - type: custom:mushroom-entity-card
+        entity: sensor.deye_inverter_running_status
+        name: Status
+        icon_color: green
+      - type: custom:mushroom-template-card
+        entity: sensor.deye_inverter_power_losses
+        primary: '{{ states(entity) }} W'
+        secondary: Straty mocy
+        icon: mdi:lightning-bolt-off
+        icon_color: orange
+        layout: horizontal
