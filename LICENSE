@@ -1,0 +1,69 @@
+PM Solar Dashboard - Dual License
+
+Copyright (c) 2026 Pawel Mamcarz. All rights reserved.
+
+This project uses a dual licensing model:
+
+================================================================================
+1. FREE TIER - MIT License
+================================================================================
+
+The following files are licensed under the MIT License:
+- free/solar-starter.yaml
+- README.md
+- docs/*
+- config.example.yaml
+- install.sh
+- generate.py
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of the above listed files, to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons to whom the Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+2. PAID TIERS - Commercial License
+================================================================================
+
+The following files require a valid commercial license:
+- templates/views/* (except as included in free tier)
+- templates/devices/*
+- examples/*
+
+Commercial License Terms:
+
+a) GRANT: Upon purchase, you receive a non-exclusive, non-transferable license
+   to use the purchased dashboard templates for ONE (1) Home Assistant
+   installation per license.
+
+b) RESTRICTIONS: You may NOT:
+   - Redistribute, resell, or share the purchased templates
+   - Use the templates for more installations than licenses purchased
+   - Remove or alter copyright notices
+   - Create derivative products for commercial distribution
+
+c) BULK LICENSING: For multiple installations (e.g., solar installers),
+   contact pawel@mamcarz.com for bulk pricing.
+
+d) SUPPORT: Paid tiers include email support for the duration specified
+   in the purchase tier (30 days for Pro, 90 days for Complete).
+
+e) UPDATES: License includes free updates for 12 months from purchase date.
+
+f) REFUNDS: 14-day money-back guarantee if the dashboard does not work
+   with your supported hardware configuration.
+
+For commercial licensing inquiries: pawel@mamcarz.com

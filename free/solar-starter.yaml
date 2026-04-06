@@ -1,0 +1,256 @@
+# =============================================================================
+# PM Solar Dashboard - Solar Starter (FREE)
+# =============================================================================
+# Darmowy dashboard z podstawowym widokiem przepływu energii.
+# Licencja: MIT - wolne oprogramowanie.
+#
+# INSTRUKCJA:
+# 1. Zainstaluj wymagane karty HACS:
+#    - sunsynk-power-flow-card
+#    - mini-graph-card
+#    - mushroom (lovelace-mushroom)
+#
+# 2. Zastąp encje poniżej swoimi encjami z Home Assistant:
+#    - Wyszukaj "ZMIEN:" i podmień na swoje sensor/switch/number
+#    - Użyj Narzędzia deweloperskie > Stany aby znaleźć poprawne nazwy
+#
+# 3. Zaimportuj do HA: Ustawienia > Dashboardy > + Dodaj > Edytor YAML
+#
+# Pełna wersja z wykresami, TOU, ustawieniami: https://github.com/pawelmamcarz/pm-ha-dashboards
+# =============================================================================
+
+title: Solar Dashboard
+views:
+- title: Energia
+  path: energia
+  icon: mdi:solar-power-variant
+  type: sections
+  max_columns: 2
+  sections:
+
+  # --- Status bar ---
+  - type: grid
+    column_span: 2
+    cards:
+    - type: custom:mushroom-chips-card
+      alignment: center
+      chips:
+      - type: template
+        icon: >-
+          {% set v = states('sensor.deye_inverter_battery')|int(0) %}
+          {% if v>80 %}mdi:battery-high
+          {% elif v>50 %}mdi:battery-medium
+          {% elif v>20 %}mdi:battery-low
+          {% else %}mdi:battery-alert{% endif %}
+        icon_color: >-
+          {% set v = states('sensor.deye_inverter_battery')|int(0) %}
+          {% if v>80 %}green{% elif v>50 %}lime
+          {% elif v>20 %}orange{% else %}red{% endif %}
+        # ZMIEN: encja SOC baterii
+        content: "{{ states('sensor.deye_inverter_battery') }}%"
+        tap_action:
+          action: more-info
+          entity: sensor.deye_inverter_battery
+      - type: template
+        icon: mdi:solar-power
+        icon_color: >-
+          {% set v=states('sensor.deye_inverter_pv_power')|int(0) %}
+          {% if v>3000 %}amber{% elif v>500 %}yellow{% else %}grey{% endif %}
+        # ZMIEN: encja mocy PV
+        content: "PV {{ states('sensor.deye_inverter_pv_power') }} W"
+      - type: template
+        icon: mdi:transmission-tower
+        icon_color: blue
+        # ZMIEN: encja mocy sieci
+        content: "Grid {{ states('sensor.deye_inverter_grid_power') }} W"
+      - type: entity
+        # ZMIEN: encja TOU
+        entity: switch.deye_inverter_time_of_use
+        name: TOU
+        icon: mdi:clock-check
+        icon_color: blue
+        content_info: name
+        tap_action:
+          action: toggle
+
+  # --- Power Flow Card ---
+  - type: grid
+    column_span: 2
+    cards:
+    - type: custom:sunsynk-power-flow-card
+      cardstyle: lite
+      large_font: true
+      show_solar: true
+      show_battery: true
+      show_grid: true
+      panel_mode: false
+      card_height: 100%
+      decimal_places: 1
+      inverter:
+        modern: false
+        colour: "#959595"
+        autarky: energy
+        # ZMIEN: model falownika (deye/huawei/growatt/solaredge/sunsynk)
+        model: deye
+        auto_scale: true
+        # ZMIEN: true dla 3-fazowego, false dla 1-fazowego
+        three_phase: true
+      solar:
+        # ZMIEN: liczba MPPT
+        mppts: 2
+        show_daily: true
+        colour: "#f4c430"
+        animation_speed: 9
+        # ZMIEN: max moc PV [W]
+        max_power: 11000
+        pv1_name: PV1
+        pv2_name: PV2
+        auto_scale: true
+        dynamic_colour: true
+        # ZMIEN: max moc na MPPT
+        pv1_max_power: 5500
+        pv2_max_power: 5500
+      battery:
+        # ZMIEN: pojemność baterii [Wh]
+        energy: 10000
+        # ZMIEN: encja shutdown SOC
+        shutdown_soc: number.deye_inverter_battery_shutdown_soc
+        show_daily: true
+        colour: "#ffc0cb"
+        animation_speed: 6
+        # ZMIEN: max moc baterii [W]
+        max_power: 5000
+        auto_scale: true
+        show_absolute: true
+        animate: true
+        dynamic_colour: true
+        linear_gradient: true
+      load:
+        show_daily: true
+        animation_speed: 8
+        # ZMIEN: max moc obciążenia [W]
+        max_power: 9000
+        auto_scale: true
+        dynamic_colour: true
+        dynamic_icon: true
+      grid:
+        show_daily_buy: true
+        show_daily_sell: true
+        # ZMIEN: nazwa dostawcy energii
+        grid_name: PGE
+        animation_speed: 8
+        # ZMIEN: moc przyłączeniowa [W]
+        max_power: 11000
+        auto_scale: true
+        import_icon: mdi:transmission-tower-import
+        export_icon: mdi:transmission-tower-export
+      entities:
+        # ===========================================================
+        # ZMIEN: Wszystkie encje poniżej na swoje z Home Assistant
+        # ===========================================================
+
+        # Bateria
+        battery_soc_184: sensor.deye_inverter_battery
+        battery_power_190: sensor.deye_inverter_battery_power
+        battery_voltage_183: sensor.deye_inverter_battery_voltage
+        battery_current_191: sensor.deye_inverter_battery_current
+        battery_temp_182: sensor.deye_inverter_battery_temperature
+        day_battery_charge_70: sensor.deye_inverter_daily_battery_charge
+        day_battery_discharge_71: sensor.deye_inverter_daily_battery_discharge
+        battery_rated_capacity: number.deye_inverter_battery_capacity
+
+        # Sieć
+        grid_power_169: sensor.deye_inverter_grid_power
+        grid_ct_power_172: sensor.deye_inverter_grid_l1_power
+        grid_voltage: sensor.deye_inverter_grid_l1_voltage
+        grid_connected_status_194: binary_sensor.deye_inverter_grid_connected_status
+        day_grid_import_76: sensor.deye_inverter_daily_energy_bought
+        day_grid_export_77: sensor.deye_inverter_daily_energy_sold
+
+        # Falownik
+        inverter_power_175: sensor.deye_inverter_output_power
+        inverter_voltage_154: sensor.deye_inverter_output_l1_voltage
+        inverter_current_164: sensor.deye_inverter_output_l1_current
+        load_frequency_192: sensor.deye_inverter_load_frequency
+        inverter_status_59: sensor.deye_inverter_running_status
+        dc_transformer_temp_90: sensor.deye_inverter_dc_transformer_temperature
+        radiator_temp_91: sensor.deye_inverter_ac_temperature
+
+        # PV
+        pv1_power_186: sensor.deye_inverter_pv1_power
+        pv2_power_187: sensor.deye_inverter_pv2_power
+        pv1_voltage_109: sensor.deye_inverter_pv1_voltage
+        pv2_voltage_111: sensor.deye_inverter_pv2_voltage
+        pv1_current_110: sensor.deye_inverter_pv1_current
+        pv2_current_112: sensor.deye_inverter_pv2_current
+        day_pv_energy_108: sensor.deye_inverter_daily_pv_production
+        pv_total: sensor.deye_inverter_pv_power
+        total_pv_generation: sensor.deye_inverter_total_pv_production
+
+        # Obciążenie
+        day_load_energy_84: sensor.deye_inverter_daily_load_consumption
+        load_power_L1: sensor.deye_inverter_load_l1_power
+
+        # Sterowanie
+        use_timer_248: switch.deye_inverter_time_of_use
+        priority_load_243: select.deye_inverter_energy_management_priority
+        solar_sell_247: switch.deye_inverter_solar_sell
+        max_sell_power: number.deye_inverter_max_sell_power
+
+        # Nieużywane - ustaw none jeśli nie masz
+        essential_load1: none
+        essential_load2: none
+        essential_load3: none
+        nonessential_power: none
+
+  # --- SOC Mini Graph ---
+  - type: grid
+    cards:
+    - type: custom:mini-graph-card
+      entities:
+      # ZMIEN: encja SOC baterii
+      - entity: sensor.deye_inverter_battery
+        name: SOC Baterii
+      hours_to_show: 24
+      points_per_hour: 4
+      height: 100
+      line_width: 2
+      show:
+        name: false
+        icon: false
+        state: true
+        fill: fade
+        points: false
+        labels: true
+        legend: false
+      color_thresholds:
+      - value: 20
+        color: "#f44336"
+      - value: 50
+        color: "#ff9800"
+      - value: 80
+        color: "#4caf50"
+
+  # --- Energia dzienna ---
+  - type: grid
+    cards:
+    - type: entities
+      title: Energia dzienna
+      show_header_toggle: false
+      entities:
+      # ZMIEN: encje dziennych statystyk
+      - entity: sensor.deye_inverter_daily_energy_bought
+        name: Pobrano z sieci
+        icon: mdi:transmission-tower-import
+      - entity: sensor.deye_inverter_daily_energy_sold
+        name: Oddano do sieci
+        icon: mdi:transmission-tower-export
+      - entity: sensor.deye_inverter_daily_load_consumption
+        name: "Zu\u017Cycie domu"
+        icon: mdi:home-lightning-bolt
+      - entity: sensor.deye_inverter_daily_battery_charge
+        name: "\u0141adowanie bat."
+        icon: mdi:battery-charging
+      - entity: sensor.deye_inverter_daily_battery_discharge
+        name: "Roz\u0142adowanie bat."
+        icon: mdi:battery-arrow-down

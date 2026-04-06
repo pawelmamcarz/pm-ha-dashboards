@@ -1,0 +1,58 @@
+# =============================================================================
+# Huawei Solar Inverter - Entity Mapping
+# =============================================================================
+# Mapowanie encji HA dla falownika Huawei (integracja huawei_solar).
+# Uwaga: Huawei nie ma wbudowanego TOU - widoki TOU nie będą generowane.
+# =============================================================================
+
+inverter:
+  model: huawei
+  three_phase: false
+
+entities:
+  # --- Moc i energia PV ---
+  pv_power: "sensor.{{ prefix }}_input_power"
+  pv1_power: "sensor.{{ prefix }}_pv1_power"
+  pv2_power: "sensor.{{ prefix }}_pv2_power"
+  pv1_voltage: "sensor.{{ prefix }}_pv1_voltage"
+  pv2_voltage: "sensor.{{ prefix }}_pv2_voltage"
+  pv1_current: "sensor.{{ prefix }}_pv1_current"
+  pv2_current: "sensor.{{ prefix }}_pv2_current"
+  daily_pv_energy: "sensor.{{ prefix }}_daily_yield"
+  total_pv_generation: "sensor.{{ prefix }}_total_yield"
+
+  # --- Bateria (LUNA2000) ---
+  battery_soc: "sensor.{{ prefix }}_battery_state_of_capacity"
+  battery_power: "sensor.{{ prefix }}_battery_charge_discharge_power"
+  battery_voltage: "sensor.{{ prefix }}_battery_bus_voltage"
+  battery_current: "sensor.{{ prefix }}_battery_bus_current"
+  battery_temperature: "sensor.{{ prefix }}_battery_temperature"
+  daily_battery_charge: "sensor.{{ prefix }}_battery_day_charge"
+  daily_battery_discharge: "sensor.{{ prefix }}_battery_day_discharge"
+
+  # --- Sieć ---
+  grid_power: "sensor.{{ prefix }}_active_grid_power"
+  grid_l1_power: "sensor.{{ prefix }}_active_grid_a_power"
+  grid_l2_power: "sensor.{{ prefix }}_active_grid_b_power"
+  grid_l3_power: "sensor.{{ prefix }}_active_grid_c_power"
+  grid_l1_voltage: "sensor.{{ prefix }}_grid_voltage"
+  daily_energy_bought: "sensor.{{ prefix }}_grid_consumption"
+  daily_energy_sold: "sensor.{{ prefix }}_grid_exported_energy"
+
+  # --- Obciążenie ---
+  output_power: "sensor.{{ prefix }}_active_power"
+  load_power: "sensor.{{ prefix }}_house_consumption_power"
+  daily_load_consumption: "sensor.{{ prefix }}_daily_consumption"
+
+  # --- Temperatury ---
+  ac_temperature: "sensor.{{ prefix }}_internal_temperature"
+
+  # --- Status ---
+  running_status: "sensor.{{ prefix }}_inverter_state"
+
+  # --- Przełączniki ---
+  # Huawei: mniej opcji sterowania niż Deye
+  battery_grid_charging: "switch.{{ prefix }}_grid_charge"
+
+  # --- TOU (ograniczony) ---
+  tou_enabled: "switch.{{ prefix }}_time_of_use"

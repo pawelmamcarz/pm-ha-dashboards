@@ -1,0 +1,13 @@
+# Wygenerowane pliki
+output/
+__pycache__/
+*.pyc
+
+# Konfiguracja użytkownika (zawiera lokalne entity IDs)
+config.yaml
+
+# System
+.DS_Store
+*.swp
+*.swo
+*~

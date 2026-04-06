@@ -1,0 +1,96 @@
+# =============================================================================
+# PM Solar Dashboard - Konfiguracja użytkownika
+# =============================================================================
+# Skopiuj ten plik jako config.yaml i dostosuj do swojej instalacji.
+# Uruchom: python3 generate.py
+# =============================================================================
+
+# --- Ogólne ---
+dashboard:
+  title: "Dom"
+  language: pl            # pl | en
+
+# --- Falownik główny ---
+inverter:
+  brand: deye              # deye | huawei | growatt | solaredge
+  phases: 3                # 1 | 3
+  model: deye              # model do sunsynk-power-flow-card
+  entity_prefix: "deye_inverter"  # prefix encji HA (np. sensor.PREFIKS_battery)
+
+# --- Panele fotowoltaiczne ---
+solar:
+  mppt_count: 2            # liczba MPPT trackerów
+  total_max_power: 11000   # W - moc szczytowa instalacji
+  pv1_name: "PV1"
+  pv2_name: "PV2"
+  pv1_max_power: 11000     # W
+  pv2_max_power: 11000     # W
+  # Encje (jeśli inne niż domyślne dla wybranego brand)
+  # pv_power_entity: "sensor.custom_pv_power"
+  # daily_production_entity: "sensor.custom_daily_production"
+
+# --- Bateria ---
+battery:
+  capacity_wh: 15960       # Wh - pojemność nominalna
+  count: 1                 # liczba baterii
+  max_power: 12000         # W - max moc ładowania/rozładowania
+  has_bms: true            # czy jest zewnętrzny BMS (EV-BPM itp.)
+  # Encje BMS (opcjonalne)
+  # bms_soc_entity: "sensor.batt_soc"
+  # bms_soh_entity: "sensor.batt_soh"
+
+# --- Sieć ---
+grid:
+  provider_name: "PGE"     # nazwa dostawcy energii
+  max_power: 11000         # W - moc przyłączeniowa
+  has_tou: true            # czy używasz programu Time-of-Use
+  tou_slots: 6             # liczba okien TOU (max 6)
+
+# --- Odbiorniki (opcjonalne moduły) ---
+loads:
+  ev_charger:
+    enabled: false
+    name: "Tesla"
+    icon: "mdi:car-electric"
+    # power_entity: "sensor.tesla_wall_connector_moc"
+    # soc_entity: "sensor.tesla_battery_level"
+
+  heat_pump:
+    enabled: false
+    name: "Pompa ciepła"
+    icon: "mdi:pump"
+    brand: panasonic        # panasonic | daikin | mitsubishi | generic
+    # power_entity: "sensor.heat_pump_power"
+
+  water_heater:
+    enabled: false
+    # entity: "switch.water_heater"
+
+# --- Monitoring środowiska (opcjonalny) ---
+environment:
+  air_quality:
+    enabled: false
+    # pm1_entity: "sensor.air_pm1"
+    # pm25_entity: "sensor.air_pm25"
+    # pm10_entity: "sensor.air_pm10"
+
+  indoor_air:
+    enabled: false
+    # co2_entity: "sensor.indoor_co2"
+
+# --- Drugi falownik (opcjonalny, np. mikroinwerter) ---
+secondary_inverter:
+  enabled: false
+  brand: huawei
+  entity_prefix: "inwerter"
+  # power_entity: "sensor.inwerter_moc_czynna"
+  # daily_entity: "sensor.inwerter_dzienna_produkcja"
+
+# --- Widoki do wygenerowania ---
+views:
+  energy_flow: true        # Główny widok przepływu energii (FREE)
+  overview: true           # Przegląd PV, baterii, sieci (PRO)
+  tou_charging: true       # Programowanie TOU (PRO)
+  settings: true           # Ustawienia falownika (PRO)
+  home_control: false      # Sterowanie domem (PREMIUM)
+  monitoring: false         # Monitoring systemu (PREMIUM)

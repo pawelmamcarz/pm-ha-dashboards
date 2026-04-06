@@ -1,0 +1,73 @@
+# =============================================================================
+# Deye 1-Phase Inverter - Entity Mapping
+# =============================================================================
+# Mapowanie encji HA dla falownika Deye 1-fazowego (np. SUN-5K-SG03LP1).
+# =============================================================================
+
+inverter:
+  model: deye
+  three_phase: false
+
+entities:
+  # --- Moc i energia PV ---
+  pv_power: "sensor.{{ prefix }}_pv_power"
+  pv1_power: "sensor.{{ prefix }}_pv1_power"
+  pv2_power: "sensor.{{ prefix }}_pv2_power"
+  pv1_voltage: "sensor.{{ prefix }}_pv1_voltage"
+  pv2_voltage: "sensor.{{ prefix }}_pv2_voltage"
+  pv1_current: "sensor.{{ prefix }}_pv1_current"
+  pv2_current: "sensor.{{ prefix }}_pv2_current"
+  daily_pv_energy: "sensor.{{ prefix }}_daily_pv_production"
+  total_pv_generation: "sensor.{{ prefix }}_total_pv_production"
+
+  # --- Bateria ---
+  battery_soc: "sensor.{{ prefix }}_battery"
+  battery_power: "sensor.{{ prefix }}_battery_power"
+  battery_voltage: "sensor.{{ prefix }}_battery_voltage"
+  battery_current: "sensor.{{ prefix }}_battery_current"
+  battery_temperature: "sensor.{{ prefix }}_battery_temperature"
+  daily_battery_charge: "sensor.{{ prefix }}_daily_battery_charge"
+  daily_battery_discharge: "sensor.{{ prefix }}_daily_battery_discharge"
+  battery_shutdown_soc: "number.{{ prefix }}_battery_shutdown_soc"
+  battery_capacity: "number.{{ prefix }}_battery_capacity"
+
+  # --- Sieć (1-fazowa) ---
+  grid_power: "sensor.{{ prefix }}_grid_power"
+  grid_l1_power: "sensor.{{ prefix }}_grid_power"
+  grid_l1_voltage: "sensor.{{ prefix }}_grid_voltage"
+  grid_connected_status: "binary_sensor.{{ prefix }}_grid_connected_status"
+  daily_energy_bought: "sensor.{{ prefix }}_daily_energy_bought"
+  daily_energy_sold: "sensor.{{ prefix }}_daily_energy_sold"
+
+  # --- Obciążenie (1-fazowe) ---
+  output_power: "sensor.{{ prefix }}_output_power"
+  load_power: "sensor.{{ prefix }}_load_power"
+  load_l1_power: "sensor.{{ prefix }}_load_power"
+  load_frequency: "sensor.{{ prefix }}_load_frequency"
+  daily_load_consumption: "sensor.{{ prefix }}_daily_load_consumption"
+
+  # --- Napięcia wyjściowe ---
+  output_l1_voltage: "sensor.{{ prefix }}_output_voltage"
+  output_l1_current: "sensor.{{ prefix }}_output_current"
+  output_frequency: "sensor.{{ prefix }}_output_frequency"
+
+  # --- Temperatury ---
+  ac_temperature: "sensor.{{ prefix }}_ac_temperature"
+  dc_transformer_temp: "sensor.{{ prefix }}_dc_transformer_temperature"
+
+  # --- Status ---
+  running_status: "sensor.{{ prefix }}_running_status"
+
+  # --- Przełączniki ---
+  power_switch: "switch.{{ prefix }}_power_switch"
+  solar_sell: "switch.{{ prefix }}_solar_sell"
+  energy_priority: "select.{{ prefix }}_energy_management_priority"
+  battery_grid_charging: "switch.{{ prefix }}_battery_grid_charging"
+  time_of_use: "switch.{{ prefix }}_time_of_use"
+
+  # --- Limity ---
+  max_battery_charge_current: "number.{{ prefix }}_maximum_battery_charge_current"
+  max_battery_discharge_current: "number.{{ prefix }}_maximum_battery_discharge_current"
+  max_battery_grid_charge_current: "number.{{ prefix }}_maximum_battery_grid_charge_current"
+  battery_shutdown_voltage: "number.{{ prefix }}_battery_shutdown_voltage"
+  max_sell_power: "number.{{ prefix }}_max_sell_power"
